@@ -1,0 +1,31 @@
+# READ ME
+
+## Market Adjustment (MA) Workbook Code Base
+
+Originally, I had hoped to have one code editable for all types (see the CTE folder, z.Default_AllCode_MA_Workbooks.sql). This has proven unmanageable, as each entity (Res regular, Res Waterfront, Commercial, Manufactured Homes, and Manufactured Home Square Foot Analysis) has it's own idiosyncrasies. 
+
+I would love to see a single code version for an eventual Tableau replacement of the workbooks, so I'm still preserving that code as an option. Theoretically, combining all CTEs and all final columns with no GEO filters (without removing GEOs by type) would produce this final workable Tableau Analysis version. I'll investigate that when we have development time when these are completed and audits are done. 
+
+# Folders
+
+## CTEs
+-  All the individual sub queries for the final product. As it got more hectic, I may not have saved each one separately, this may be something to review when it is all done. It's helpful to see the components that make the whole.
+
+## Excel, VBA, Power Query, Macros
+-  Excel Formulas that took research to create
+-  VBA/Macros used to duplicate the workbooks
+-  Power Query transformations that were needed
+
+# Geo Information 
+- Individual land tables
+- District Key
+- Type Keys
+- Parcel Counts and Geo Names
+
+
+-----------------------------------------
+
+Updated
+11/21/2023
+Darrell Wolfe
+

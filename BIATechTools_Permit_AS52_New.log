@@ -1,0 +1,4 @@
+2024-06-18 11:22:55,303 - ERROR - Error updating records: name 'Application' is not defined
+2024-06-18 11:23:49,781 - ERROR - Error updating records: name 'Application' is not defined
+2024-06-18 11:25:17,993 - ERROR - Error updating records: {'title_re': '.*WindowsForms10.Window.8.app.0.13965fa_r8_ad1117.*', 'backend': 'uia', 'visible_only': False}
+2024-06-18 11:30:11,571 - ERROR - Error updating records: Could not open or find Permits.

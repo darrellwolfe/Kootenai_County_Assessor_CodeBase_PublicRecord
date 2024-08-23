@@ -1,5 +1,6 @@
-/*
+-- !preview conn=conn
 
+/*
 --GRM Database
 AsTxDBProd
 GRM_Main
@@ -9,13 +10,9 @@ Permits-Prod
 iMS
 
 --In iMS, their version of a codes_table is called: vw_BaseCustomFields
-
 PROJECT VALUATION
 PROJECT SQ FT
-
 */
-
-
 
 
 SELECT 

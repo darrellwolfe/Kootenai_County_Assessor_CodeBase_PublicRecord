@@ -1,3 +1,5 @@
+-- !preview conn=conn
+
 /*
 SELECT 
 r.Id, r.AssessmentYear, r.Descr AS AssessmentType,
@@ -20,8 +22,28 @@ From CadInv
 Order by CreateLevelDate DESC, LastBuildDate DESC
 
 
+SELECT 
+r.Id, r.AssessmentYear, r.Descr AS AssessmentType,
+l.Id, l.CadRollId, l.RollLevel,
+i.Id, i.EffStatus, i.TranId, i.CadLevelId, i.RevObjEffStatus, i.PIN, i.AIN, i.GeoCd, i.TAGDescr AS TAG
+FROM CadRoll r
+JOIN CadLevel l ON r.Id = l.CadRollId
+JOIN CadInv i ON l.Id = i.CadLevelId
+
+Where AssessmentYear = 2023
+
 */
 
-Select *
-From CadLevel
-Order by CreateLevelDate DESC, LastBuildDate DESC
+DECLARE @TaxYear INT = 2023;
+
+SELECT DISTINCT
+r.Id, r.AssessmentYear, r.Descr AS AssessmentType,
+l.Id, l.CadRollId, l.RollLevel
+--i.Id
+--, i.EffStatus, i.TranId, i.CadLevelId
+--, i.RevObjEffStatus, i.PIN, i.AIN, i.GeoCd, i.TAGDescr AS TAG
+FROM CadRoll r
+JOIN CadLevel l ON r.Id = l.CadRollId
+JOIN CadInv i ON l.Id = i.CadLevelId
+
+Where AssessmentYear = 2023

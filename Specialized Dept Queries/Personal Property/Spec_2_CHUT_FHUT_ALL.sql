@@ -5,7 +5,7 @@ GRM_Main
 */
 
 
-DECLARE @Year INT = 2023;  -- Change this value to 2022 or 2024 as desired
+DECLARE @Year INT = 2024;  -- Change this value to 2022 or 2024 as desired
 
 
 WITH 

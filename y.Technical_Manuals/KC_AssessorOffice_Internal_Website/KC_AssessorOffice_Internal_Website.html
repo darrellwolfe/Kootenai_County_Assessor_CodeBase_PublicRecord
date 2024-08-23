@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Policy and Procedure Documents</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #container {
+      max-width: 800px;
+      margin: auto;
+    }
+    .collapsible {
+      cursor: pointer;
+    }
+    .content {
+      display: none;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Policy and Procedure Documents</h1>
+    
+    <!-- Search Box -->
+    <input type="text" id="searchBox" placeholder="Search...">
+
+    <!-- Table of Contents -->
+    <h2>Table of Contents</h2>
+    <ul id="toc">
+      <li><a href="#section1">Section 1</a></li>
+      <li><a href="#section2">Section 2</a></li>
+    </ul>
+
+    <!-- Collapsible Sections -->
+    <div class="section" id="section1">
+      <h3 class="collapsible">Section 1</h3>
+      <div class="content">
+        <a href="file:///C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase/y.Technical_Manuals/What%20is%20this%20repo%20anyway/What-is-this-rep-anyway.html">What is this repo anyway?</a><br>
+        <a href="your_RMD_doc2.html">Policy 2</a>
+      </div>
+    </div>
+
+    <div class="section" id="section2">
+      <h3 class="collapsible">Section 2</h3>
+      <div class="content">
+        <a href="your_RMD_doc3.html">Procedure 1</a><br>
+        <a href="your_RMD_doc4.html">Procedure 2</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Collapsible functionality
+    $('.collapsible').click(function() {
+      $(this).next('.content').toggle();
+    });
+
+    // Search functionality
+    $('#searchBox').on('input', function() {
+      var value = $(this).val().toLowerCase();
+      $('.section').filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  </script>
+</body>
+</html>

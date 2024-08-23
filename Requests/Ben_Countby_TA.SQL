@@ -1,4 +1,4 @@
--- !preview conn=con
+-- !preview conn=conn
 
 SELECT DISTINCT
 -- TAG.Descr AS [TAG],
@@ -17,7 +17,7 @@ LEFT JOIN TaxAuthority ON TAGTaxAuthority.TaxAuthorityId=TaxAuthority.Id
   AND TaxAuthority.EffStatus = 'A'
 
 WHERE TAG.EffStatus = 'A'
-AND TaxAuthority.Descr LIKE '203%'
+--AND TaxAuthority.Descr LIKE '203%'
 
 GROUP BY
 TaxAuthority.Descr 

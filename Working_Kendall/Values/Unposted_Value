@@ -1,0 +1,32 @@
+WITH CTE_Wksht AS(
+SELECT 
+    p.lrsn AS [LRSN],
+    TRIM(p.pin) AS [PIN],
+    TRIM(p.AIN) AS [AIN],
+    r.method,
+    r.land_model,
+    r.land_mkt_val_cost,
+    r.cost_value,
+    (r.land_mkt_val_cost-r.cost_value) AS Imp_Cost,
+    r.[status]
+
+FROM TSBv_PARCELMASTER AS p
+    JOIN reconciliation AS r ON p.lrsn = r.lrsn
+
+WHERE p.EffStatus = 'A'
+    AND r.date_cert = '0')
+
+SELECT 
+    p1.lrsn AS [LRSN],
+    TRIM(p1.pin) AS [PIN],
+    TRIM(p1.AIN) AS [AIN],
+    (r1.land_mkt_val_cost-cw.land_mkt_val_cost) AS Diff_Land,
+    (r1.cost_value-cw.cost_value) AS Diff_Total,
+    ((r1.land_mkt_val_cost-r1.cost_value)-(cw.land_mkt_val_cost-cw.cost_value)) AS Diff_Imp
+
+    FROM TSBv_PARCELMASTER AS p1
+        JOIN reconciliation AS r1 ON p1.lrsn = r1.lrsn
+        JOIN CTE_Wksht AS cw ON cw.LRSN = p1.lrsn
+
+    WHERE p1.EffStatus = 'A'
+        AND r1.date_cert = '20240101'

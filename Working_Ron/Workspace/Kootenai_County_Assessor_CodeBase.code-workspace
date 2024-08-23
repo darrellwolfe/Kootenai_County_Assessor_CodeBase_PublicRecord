@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../KCAsrCB"
+		}
+	],
+	"settings": {
+		"dataworkspace.excludedProjects": [
+			"Test1/Test1.sqlproj"
+		]
+	}
+}

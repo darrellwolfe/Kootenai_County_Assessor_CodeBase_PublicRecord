@@ -1,0 +1,120 @@
+-- !preview conn=conn
+
+/*
+AsTxDBProd
+GRM_Main
+
+---------
+--Select All
+---------
+Select Distinct *
+From TSBv_PARCELMASTER AS pm
+Where pm.EffStatus = 'A'
+
+*/
+
+
+
+
+
+WITH
+
+
+CTE_ParcelMaster AS (
+--------------------------------
+--ParcelMaster
+--------------------------------
+Select Distinct
+pm.lrsn
+,pm.EffStatus
+,TRIM(pm.pin) AS PIN
+,TRIM(pm.AIN) AS AIN
+,pm.ClassCD
+,TRIM(pm.PropClassDescr) AS Property_Class_Description
+,TRIM(pm.TAG) AS TAG
+,TRIM(pm.DisplayName) AS Owner
+,TRIM(pm.DisplayDescr) AS LegalDescription
+,TRIM(pm.SitusAddress) AS SitusAddress
+,TRIM(pm.SitusCity) AS SitusCity
+,TRIM(pm.SitusState) AS SitusState
+,TRIM(pm.SitusZip) AS SitusZip
+
+,TRIM(pm.AttentionLine) AS AttentionLine
+,TRIM(pm.MailingAddress) AS MailingAddress
+,TRIM(pm.AddlAddrLine) AS AddlAddrLine
+,TRIM(pm.MailingCityStZip) AS MailingCityStZip
+,TRIM(pm.MailingCity) AS MailingCity
+,TRIM(pm.MailingState) AS MailingState
+,TRIM(pm.MailingZip) AS MailingZip
+
+From TSBv_PARCELMASTER AS pm
+
+Where pm.pin LIKE 'E%'
+),
+
+CTE_TAG_TA_TIF_Key AS (
+SELECT DISTINCT 
+tag.Id AS TAGId
+,TRIM(tag.Descr) AS TAG
+,tif.Id AS TIFId
+,TRIM(tif.Descr) AS TIF
+--,ta.Id AS TaxAuthId
+--,TRIM(ta.Descr) AS TaxAuthority
+
+--TAG Table
+FROM TAG AS tag
+--TAGTIF Key
+LEFT JOIN TAGTIF 
+  ON TAG.Id=TAGTIF.TAGId 
+    AND TAGTIF.EffStatus = 'A'
+--TIF Table
+LEFT JOIN TIF AS tif 
+  ON TAGTIF.TIFId=TIF.Id 
+    AND TIF.EffStatus  = 'A'
+/*
+--TAGTaxAuthority Key
+LEFT JOIN TAGTaxAuthority 
+  ON TAG.Id=TAGTaxAuthority.TAGId 
+    AND TAGTaxAuthority.EffStatus = 'A'
+--TaxAuthority Table
+LEFT JOIN TaxAuthority AS ta 
+  ON TAGTaxAuthority.TaxAuthorityId=ta.Id 
+    AND ta.EffStatus = 'A'
+--CTE_ JOIN, only want TAGs in this TaxAuth
+*/
+WHERE tag.EffStatus = 'A'
+And tif.Descr LIKE '%URD%'
+)
+
+SELECT DISTINCT
+pmd.EffStatus
+,pmd.lrsn
+,pmd.PIN
+,pmd.AIN
+,pmd.Owner
+,pmd.ClassCD
+,pmd.Property_Class_Description
+,pmd.TAG
+,tif.TIFId
+,CASE
+  When tif.TIF IS NULL Then 'Non-TIF'
+  When tif.TIF IS NOT NULL Then tif.TIF
+  Else tif.TIF
+ END AS TIF
+,pmd.LegalDescription
+,pmd.SitusAddress
+,pmd.SitusCity
+,pmd.SitusState
+,pmd.SitusZip
+,pmd.AttentionLine
+,pmd.MailingAddress
+,pmd.AddlAddrLine
+,pmd.MailingCityStZip
+,pmd.MailingCity
+,pmd.MailingState
+,pmd.MailingZip
+
+FROM CTE_ParcelMaster AS pmd
+
+Left Join CTE_TAG_TA_TIF_Key AS tif
+    On tif.TAG = pmd.TAG

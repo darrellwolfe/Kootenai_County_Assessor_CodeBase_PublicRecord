@@ -1,0 +1,287 @@
+2024-08-06 14:17:26,700:INFO:Initialized ProValAutomation class.
+2024-08-06 14:17:26,882:INFO:ProVal started successfully.
+2024-08-06 14:17:26,883:INFO:ProVal application opened.
+2024-08-06 14:17:36,884:INFO:Data file loaded successfully.
+2024-08-06 14:17:36,885:INFO:Loaded LSRNs from data file: ['43834']
+2024-08-06 14:17:36,886:INFO:Starting automation for LSRN: 43834
+2024-08-06 14:17:41,893:ERROR:Error processing LSRN 43834: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 13428}
+2024-08-06 14:17:41,904:ERROR:Traceback (most recent call last):
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\application.py", line 250, in __resolve_control
+    ctrl = wait_until_passes(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\timings.py", line 458, in wait_until_passes
+    raise err
+pywinauto.timings.TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\rmason\Documents\KCAsrCB\Working_Ron\FieldVisitUpdater\FieldVisitUpdater.py", line 71, in automate_field_visit
+    main_window.set_focus()  # Ensure the ProVal main window is focused
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\application.py", line 396, in __getattribute__
+    ctrls = self.__resolve_control(self.criteria)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\application.py", line 261, in __resolve_control
+    raise e.original_exception
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\timings.py", line 436, in wait_until_passes
+    func_val = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\application.py", line 203, in __get_ctrl
+    dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\Programs\Python\Python312\Lib\site-packages\pywinauto\findwindows.py", line 87, in find_element
+    raise ElementNotFoundError(kwargs)
+pywinauto.findwindows.ElementNotFoundError: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 13428}
+
+2024-08-06 14:17:42,905:INFO:Completed automation for LSRN: 43834
+2024-08-06 14:17:42,906:INFO:ProVal process terminated.
+2024-08-06 14:17:42,907:INFO:ProVal terminated.
+2024-08-09 15:23:05,824:INFO:Initialized ProValAutomation class.
+2024-08-09 15:23:06,157:INFO:ProVal started successfully.
+2024-08-09 15:23:06,157:INFO:ProVal application opened.
+2024-08-09 15:23:16,164:INFO:Data file loaded successfully.
+2024-08-09 15:23:16,164:INFO:Loaded LSRNs from data file: ['43834']
+2024-08-09 15:23:16,164:INFO:Starting automation for LSRN: 43834
+2024-08-09 15:23:21,170:ERROR:Error processing LSRN 43834: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 6452}
+2024-08-09 15:23:21,170:ERROR:Traceback (most recent call last):
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 250, in __resolve_control
+    ctrl = wait_until_passes(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\timings.py", line 458, in wait_until_passes
+    raise err
+pywinauto.timings.TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\rmason\Documents\KCAsrCB\Working_Ron\FieldVisitUpdater\FieldVisitUpdater.py", line 71, in automate_field_visit
+    main_window.set_focus()  # Ensure the ProVal main window is focused
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 396, in __getattribute__
+    ctrls = self.__resolve_control(self.criteria)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 261, in __resolve_control
+    raise e.original_exception
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\timings.py", line 436, in wait_until_passes
+    func_val = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 203, in __get_ctrl
+    dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\findwindows.py", line 87, in find_element
+    raise ElementNotFoundError(kwargs)
+pywinauto.findwindows.ElementNotFoundError: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 6452}
+
+2024-08-09 15:23:22,178:INFO:Completed automation for LSRN: 43834
+2024-08-09 15:23:22,178:INFO:ProVal process terminated.
+2024-08-09 15:23:22,178:INFO:ProVal terminated.
+2024-08-12 09:24:43,617:INFO:Initialized ProValAutomation class.
+2024-08-12 09:24:44,180:INFO:ProVal started successfully.
+2024-08-12 09:24:44,180:INFO:ProVal application opened.
+2024-08-12 09:24:54,193:INFO:Data file loaded successfully.
+2024-08-12 09:24:54,193:INFO:Loaded LSRNs from data file: ['43834']
+2024-08-12 09:24:54,193:INFO:Starting automation for LSRN: 43834
+2024-08-12 09:24:59,544:ERROR:Error processing LSRN 43834: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 6604}
+2024-08-12 09:24:59,544:ERROR:Traceback (most recent call last):
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 250, in __resolve_control
+    ctrl = wait_until_passes(
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\timings.py", line 458, in wait_until_passes
+    raise err
+pywinauto.timings.TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\rmason\Documents\KCAsrCB\Working_Ron\FieldVisitUpdater\FieldVisitUpdater.py", line 71, in automate_field_visit
+    main_window.set_focus()  # Ensure the ProVal main window is focused
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 396, in __getattribute__
+    ctrls = self.__resolve_control(self.criteria)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 261, in __resolve_control
+    raise e.original_exception
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\timings.py", line 436, in wait_until_passes
+    func_val = func(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\application.py", line 203, in __get_ctrl
+    dialog = self.backend.generic_wrapper_class(findwindows.find_element(**criteria[0]))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pywinauto\findwindows.py", line 87, in find_element
+    raise ElementNotFoundError(kwargs)
+pywinauto.findwindows.ElementNotFoundError: {'title': 'ProVal', 'class_name': 'WindowsForms10.Window.8.app.0.13965fa_r8_ad1', 'backend': 'win32', 'process': 6604}
+
+2024-08-12 09:25:00,550:INFO:Completed automation for LSRN: 43834
+2024-08-12 09:25:00,550:INFO:ProVal process terminated.
+2024-08-12 09:25:00,550:INFO:ProVal terminated.
+2024-08-12 14:28:34,016:INFO:Initialized ProValAutomation class.
+2024-08-12 14:28:34,403:INFO:ProVal started successfully.
+2024-08-12 14:28:34,403:INFO:ProVal application opened.
+2024-08-12 14:33:01,656:INFO:Initialized ProValAutomation class.
+2024-08-12 14:33:02,019:INFO:ProVal is already running.
+2024-08-12 14:33:02,613:INFO:ProVal application opened.
+2024-08-12 14:33:12,613:INFO:Data file loaded successfully.
+2024-08-12 14:33:12,613:INFO:Loaded PINs from data file: ['0L8610010020', '0L8770010010', '08760000016A', '0L8710010020', '0L8380010010', '0L8280050020']
+2024-08-12 14:33:12,613:INFO:Starting automation for PIN: 0L8610010020
+2024-08-12 14:33:12,613:INFO:Main window focused.
+2024-08-12 14:33:12,613:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:33:16,838:INFO:Parcel Selection window located and focused.
+2024-08-12 14:33:20,415:INFO:Focused on the main window for PIN 0L8610010020.
+2024-08-12 14:33:22,431:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:33:36,172:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:33:36,296:INFO:Clicked on Add Field Visit button for PIN 0L8610010020.
+2024-08-12 14:33:37,413:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8610010020.
+2024-08-12 14:33:38,533:INFO:Clicked on Work Due Date checkbox for PIN 0L8610010020.
+2024-08-12 14:33:39,534:ERROR:Error processing PIN 0L8610010020: PyAutoGUI fail-safe triggered from mouse moving to a corner of the screen. To disable this fail-safe, set pyautogui.FAILSAFE to False. DISABLING FAIL-SAFE IS NOT RECOMMENDED.
+2024-08-12 14:33:39,534:ERROR:Traceback (most recent call last):
+  File "c:\Users\rmason\Documents\KCAsrCB\Working_Ron\FieldVisitUpdater\FieldVisitUpdater.py", line 134, in automate_field_visit
+    pyautogui.click(440, 710)
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pyautogui\__init__.py", line 593, in wrapper
+    failSafeCheck()
+  File "C:\Users\rmason\AppData\Local\miniconda3\Lib\site-packages\pyautogui\__init__.py", line 1734, in failSafeCheck
+    raise FailSafeException(
+pyautogui.FailSafeException: PyAutoGUI fail-safe triggered from mouse moving to a corner of the screen. To disable this fail-safe, set pyautogui.FAILSAFE to False. DISABLING FAIL-SAFE IS NOT RECOMMENDED.
+
+2024-08-12 14:33:40,541:INFO:Completed automation for PIN: 0L8610010020
+2024-08-12 14:33:40,541:INFO:Starting automation for PIN: 0L8770010010
+2024-08-12 14:33:40,541:INFO:Main window focused.
+2024-08-12 14:33:40,541:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:33:47,775:ERROR:Failed to locate or focus on Parcel Selection window: timed out
+2024-08-12 14:33:47,775:INFO:Completed automation for PIN: 0L8770010010
+2024-08-12 14:33:47,775:INFO:Starting automation for PIN: 08760000016A
+2024-08-12 14:33:47,967:INFO:Main window focused.
+2024-08-12 14:33:47,967:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:33:52,188:INFO:Parcel Selection window located and focused.
+2024-08-12 14:33:54,549:INFO:Focused on the main window for PIN 08760000016A.
+2024-08-12 14:33:56,551:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:33:58,122:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:33:58,245:INFO:Clicked on Add Field Visit button for PIN 08760000016A.
+2024-08-12 14:33:59,363:INFO:Clicked on Work Assigned Date checkbox for PIN 08760000016A.
+2024-08-12 14:34:00,479:INFO:Clicked on Work Due Date checkbox for PIN 08760000016A.
+2024-08-12 14:34:02,098:INFO:Set Visit Date to 12/31/2024 for PIN 08760000016A.
+2024-08-12 14:34:03,200:INFO:Clicked on Need to Visit checkbox for PIN 08760000016A.
+2024-08-12 14:34:04,406:INFO:Field visit record added for PIN 08760000016A.
+2024-08-12 14:34:06,406:INFO:Completed automation for PIN: 08760000016A
+2024-08-12 14:34:06,406:INFO:Starting automation for PIN: 0L8710010020
+2024-08-12 14:34:06,594:INFO:Main window focused.
+2024-08-12 14:34:06,594:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:34:10,831:INFO:Parcel Selection window located and focused.
+2024-08-12 14:34:13,146:INFO:Focused on the main window for PIN 0L8710010020.
+2024-08-12 14:37:13,770:INFO:Initialized ProValAutomation class.
+2024-08-12 14:37:14,123:INFO:ProVal is already running.
+2024-08-12 14:37:14,657:INFO:ProVal application opened.
+2024-08-12 14:37:24,658:INFO:Data file loaded successfully.
+2024-08-12 14:37:24,658:INFO:Loaded PINs from data file: ['0L8610010020', '0L8770010010', '08760000016A', '0L8710010020', '0L8380010010', '0L8280050020']
+2024-08-12 14:37:24,658:INFO:Starting automation for PIN: 0L8610010020
+2024-08-12 14:37:25,079:INFO:Main window focused and maximized.
+2024-08-12 14:37:25,079:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:37:29,299:INFO:Parcel Selection window located and focused.
+2024-08-12 14:37:32,867:INFO:Focused on the main window for PIN 0L8610010020.
+2024-08-12 14:37:34,870:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:37:43,637:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:37:43,759:INFO:Clicked on Add Field Visit button for PIN 0L8610010020.
+2024-08-12 14:37:44,876:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8610010020.
+2024-08-12 14:37:45,992:INFO:Clicked on Work Due Date checkbox for PIN 0L8610010020.
+2024-08-12 14:37:47,619:INFO:Set Visit Date to 12/31/2024 for PIN 0L8610010020.
+2024-08-12 14:37:48,723:INFO:Clicked on Need to Visit checkbox for PIN 0L8610010020.
+2024-08-12 14:37:49,928:INFO:Field visit record added for PIN 0L8610010020.
+2024-08-12 14:37:51,929:INFO:Completed automation for PIN: 0L8610010020
+2024-08-12 14:37:51,929:INFO:Starting automation for PIN: 0L8770010010
+2024-08-12 14:37:51,929:INFO:Main window focused and maximized.
+2024-08-12 14:37:51,929:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:37:56,159:INFO:Parcel Selection window located and focused.
+2024-08-12 14:37:58,508:INFO:Focused on the main window for PIN 0L8770010010.
+2024-08-12 14:38:00,517:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:39:24,363:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:39:24,473:INFO:Clicked on Add Field Visit button for PIN 0L8770010010.
+2024-08-12 14:39:25,590:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8770010010.
+2024-08-12 14:39:26,707:INFO:Clicked on Work Due Date checkbox for PIN 0L8770010010.
+2024-08-12 14:39:28,341:INFO:Set Visit Date to 12/31/2024 for PIN 0L8770010010.
+2024-08-12 14:39:29,443:INFO:Clicked on Need to Visit checkbox for PIN 0L8770010010.
+2024-08-12 14:39:30,648:INFO:Field visit record added for PIN 0L8770010010.
+2024-08-12 14:39:32,648:INFO:Completed automation for PIN: 0L8770010010
+2024-08-12 14:39:32,648:INFO:Starting automation for PIN: 08760000016A
+2024-08-12 14:39:32,655:INFO:Main window focused and maximized.
+2024-08-12 14:39:32,655:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:39:36,880:INFO:Parcel Selection window located and focused.
+2024-08-12 14:39:39,257:INFO:Focused on the main window for PIN 08760000016A.
+2024-08-12 14:39:41,258:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:42:35,246:INFO:Initialized ProValAutomation class.
+2024-08-12 14:42:35,599:INFO:ProVal is already running.
+2024-08-12 14:42:36,185:INFO:ProVal application opened.
+2024-08-12 14:42:46,201:INFO:Data file loaded successfully.
+2024-08-12 14:42:46,201:INFO:Loaded PINs from data file: ['0L8610010020', '0L8770010010', '08760000016A', '0L8710010020', '0L8380010010', '0L8280050020']
+2024-08-12 14:42:46,201:INFO:Starting automation for PIN: 0L8610010020
+2024-08-12 14:42:46,390:INFO:Main window focused and maximized.
+2024-08-12 14:42:46,390:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:42:50,611:INFO:Parcel Selection window located and focused.
+2024-08-12 14:42:54,182:INFO:Focused on the main window for PIN 0L8610010020.
+2024-08-12 14:42:56,197:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:43:09,069:INFO:User pressed 's' to skip to the next PIN.
+2024-08-12 14:43:09,069:INFO:Completed automation for PIN: 0L8610010020
+2024-08-12 14:43:09,069:INFO:Starting automation for PIN: 0L8770010010
+2024-08-12 14:43:09,246:INFO:Main window focused and maximized.
+2024-08-12 14:43:09,246:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:43:13,466:INFO:Parcel Selection window located and focused.
+2024-08-12 14:43:15,812:INFO:Focused on the main window for PIN 0L8770010010.
+2024-08-12 14:43:17,823:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:43:27,873:INFO:User pressed 's' to skip to the next PIN.
+2024-08-12 14:43:27,873:INFO:Completed automation for PIN: 0L8770010010
+2024-08-12 14:43:27,873:INFO:Starting automation for PIN: 08760000016A
+2024-08-12 14:43:28,059:INFO:Main window focused and maximized.
+2024-08-12 14:43:28,059:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:43:32,967:INFO:Parcel Selection window located and focused.
+2024-08-12 14:43:35,350:INFO:Focused on the main window for PIN 08760000016A.
+2024-08-12 14:43:37,363:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:43:48,016:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:43:48,118:INFO:Clicked on Add Field Visit button for PIN 08760000016A.
+2024-08-12 14:43:49,236:INFO:Clicked on Work Assigned Date checkbox for PIN 08760000016A.
+2024-08-12 14:43:50,353:INFO:Clicked on Work Due Date checkbox for PIN 08760000016A.
+2024-08-12 14:43:51,983:INFO:Set Visit Date to 12/31/2024 for PIN 08760000016A.
+2024-08-12 14:43:53,086:INFO:Clicked on Need to Visit checkbox for PIN 08760000016A.
+2024-08-12 14:43:54,291:INFO:Field visit record added for PIN 08760000016A.
+2024-08-12 14:43:56,292:INFO:Completed automation for PIN: 08760000016A
+2024-08-12 14:43:56,292:INFO:Starting automation for PIN: 0L8710010020
+2024-08-12 14:43:56,292:INFO:Main window focused and maximized.
+2024-08-12 14:43:56,292:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:44:00,521:INFO:Parcel Selection window located and focused.
+2024-08-12 14:44:02,883:INFO:Focused on the main window for PIN 0L8710010020.
+2024-08-12 14:44:04,886:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:44:08,102:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:44:08,218:INFO:Clicked on Add Field Visit button for PIN 0L8710010020.
+2024-08-12 14:44:09,336:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8710010020.
+2024-08-12 14:44:10,453:INFO:Clicked on Work Due Date checkbox for PIN 0L8710010020.
+2024-08-12 14:44:12,085:INFO:Set Visit Date to 12/31/2024 for PIN 0L8710010020.
+2024-08-12 14:44:13,202:INFO:Clicked on Need to Visit checkbox for PIN 0L8710010020.
+2024-08-12 14:44:14,407:INFO:Field visit record added for PIN 0L8710010020.
+2024-08-12 14:44:16,408:INFO:Completed automation for PIN: 0L8710010020
+2024-08-12 14:44:16,408:INFO:Starting automation for PIN: 0L8380010010
+2024-08-12 14:44:16,408:INFO:Main window focused and maximized.
+2024-08-12 14:44:16,408:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:44:20,638:INFO:Parcel Selection window located and focused.
+2024-08-12 14:44:23,007:INFO:Focused on the main window for PIN 0L8380010010.
+2024-08-12 14:44:25,020:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:44:27,123:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:44:27,234:INFO:Clicked on Add Field Visit button for PIN 0L8380010010.
+2024-08-12 14:44:28,352:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8380010010.
+2024-08-12 14:44:29,469:INFO:Clicked on Work Due Date checkbox for PIN 0L8380010010.
+2024-08-12 14:44:31,100:INFO:Set Visit Date to 12/31/2024 for PIN 0L8380010010.
+2024-08-12 14:44:32,202:INFO:Clicked on Need to Visit checkbox for PIN 0L8380010010.
+2024-08-12 14:44:33,407:INFO:Field visit record added for PIN 0L8380010010.
+2024-08-12 14:44:35,408:INFO:Completed automation for PIN: 0L8380010010
+2024-08-12 14:44:35,408:INFO:Starting automation for PIN: 0L8280050020
+2024-08-12 14:44:35,408:INFO:Main window focused and maximized.
+2024-08-12 14:44:35,408:INFO:Sending keyboard commands to open Parcel Selection window.
+2024-08-12 14:44:39,637:INFO:Parcel Selection window located and focused.
+2024-08-12 14:44:42,035:INFO:Focused on the main window for PIN 0L8280050020.
+2024-08-12 14:44:44,047:INFO:Waiting for user to manually select the desired permit...
+2024-08-12 14:44:44,983:INFO:User has selected the permit and pressed 'c' to continue.
+2024-08-12 14:44:45,102:INFO:Clicked on Add Field Visit button for PIN 0L8280050020.
+2024-08-12 14:44:46,219:INFO:Clicked on Work Assigned Date checkbox for PIN 0L8280050020.
+2024-08-12 14:44:47,335:INFO:Clicked on Work Due Date checkbox for PIN 0L8280050020.
+2024-08-12 14:44:48,967:INFO:Set Visit Date to 12/31/2024 for PIN 0L8280050020.
+2024-08-12 14:44:50,069:INFO:Clicked on Need to Visit checkbox for PIN 0L8280050020.
+2024-08-12 14:44:51,274:INFO:Field visit record added for PIN 0L8280050020.
+2024-08-12 14:44:53,275:INFO:Completed automation for PIN: 0L8280050020
+2024-08-12 14:44:53,275:INFO:ProVal terminated.

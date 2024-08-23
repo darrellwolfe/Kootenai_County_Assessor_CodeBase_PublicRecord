@@ -1,3 +1,5 @@
+-- !preview conn=conn
+
 /*
 
 -- WHAT IS A cbtyp from the codes_table joined to??
@@ -23,6 +25,7 @@ Common Options
 'fieldvisit'
 'impgroup'
 'lcmshortdesc' (aka Legends)
+'pcc'
 'memo'
 'mhmake', 'mhmodel', 'mhpark'
 'permits'
@@ -40,10 +43,26 @@ ORDER BY CodeDescription;
 
 LEFT OUTER JOIN codes_table AS ct ON mh.mh_make=ct.tbl_element AND ct.tbl_type_code='mhmake'
 
+
+
+-- Join a to c
+Join codes_table AS c
+  On a.group_code = c.tbl_element
+  And c.code_status = 'A' 
+  And tbl_type_code= 'impgroup'
+  --c.tbl_type_code AS CodeType
+  --c.tbl_element AS Group_Code, 
+  --c.tbl_element_desc AS CodeDescription
+  
+  
 */
 
-SELECT c.tbl_type_code AS CodeType, c.tbl_element AS Code#, c.tbl_element_desc AS CodeDescription
+SELECT c.tbl_type_code AS CodeType, c.tbl_element AS Group_Code, c.tbl_element_desc AS CodeDescription
 FROM codes_table AS c
 
-WHERE code_status= 'A' AND tbl_type_code= 'pcc'
+WHERE code_status= 'A' 
+AND tbl_type_code= 'impgroup'
+--'lcmshortdesc' (aka Legends)
+  And c.code_status = 'A' 
+
 ORDER BY CodeDescription

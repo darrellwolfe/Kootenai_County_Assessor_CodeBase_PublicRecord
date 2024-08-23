@@ -8,6 +8,34 @@ GRM_Main
 ----------------------------------------
 -- Allocations Query
 ----------------------------------------
+CTE_Allocations AS (
+  SELECT 
+  a.lrsn
+, a.group_code
+, impgroup.tbl_element_desc AS Imp_GroupCode_Desc
+
+  FROM Allocations AS a
+  LEFT JOIN codes_table AS impgroup ON impgroup.tbl_element=a.group_code
+    AND impgroup.code_status='A'
+    AND impgroup.tbl_type_code = 'impgroup'
+    
+  WHERE (a.improvement_id = 'M' OR a.improvement_id = 'D' OR a.improvement_id = 'C')
+    AND a.status = 'A'
+    AND a.cost_value > 0
+    AND (extension LIKE '%R%'OR extension LIKE '%C%')
+    --AND a.group_code = '81'
+    AND a.group_code NOT IN ('98','99')
+)
+
+
+
+
+
+
+
+----------------------------------------
+-- Allocations Query
+----------------------------------------
 
 ---------
 Select Distinct

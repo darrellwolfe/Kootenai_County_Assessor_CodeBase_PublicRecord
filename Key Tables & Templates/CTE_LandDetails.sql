@@ -5,7 +5,7 @@
 -- CTE_LandDetails
 -------------------------------------
 
-CTE_LandDetails AS (
+--CTE_LandDetails AS (
 SELECT
 lh.RevObjId,
 ld.LandDetailType,
@@ -31,8 +31,8 @@ WHERE lh.EffStatus= 'A'
   AND lh.PostingSource='A'
   AND ld.PostingSource='A'
 --Change land model id for current year
-  AND lh.LandModelId='702023'
-  AND ld.LandModelId='702023'
+  AND lh.LandModelId='702024'
+  AND ld.LandModelId='702024'
 --Looking for:
   --AND ld.LandType IN ('82')
-)
+--)
