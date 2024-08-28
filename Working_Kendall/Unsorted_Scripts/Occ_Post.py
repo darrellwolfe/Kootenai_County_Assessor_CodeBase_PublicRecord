@@ -1,13 +1,38 @@
-import pyautogui
-import logging
-import psutil
-import os
-import time
-from pywinauto import Application
+import pyautogui  # For automating GUI interactions like mouse movements and clicks
+import pyodbc  # For establishing database connections and executing SQL queries
+import time  # For adding delays and managing time-related functions
+import numpy as np  # For numerical operations and handling arrays/matrices
+import keyboard  # For detecting and handling keyboard key presses
+import threading  # For running background tasks and creating concurrent threads
+import tkinter as tk  # For creating basic GUI elements in Python applications
+from tkinter import ttk, messagebox  # For advanced Tkinter widgets and displaying dialog boxes
+import pytesseract  # For OCR (Optical Character Recognition) to read text from images
+from PIL import Image  # For working with image data
+import cv2  # For image processing and computer vision tasks (OpenCV library)
+import ctypes  # For interacting with C data types and Windows API functions
+from tkcalendar import DateEntry  # For adding a calendar widget to Tkinter GUIs
+import logging  # For logging events, errors, and information during script execution
+from datetime import datetime # For handling dates and times
+import re # The import re statement in Python imports the regular expressions (regex) module, which provides a powerful way to search, match, and manipulate strings based on patterns.
+import sys
 
-# New import to handle windows
+#CAPS LOCK
+def is_capslock_on():
+    hllDll = ctypes.WinDLL("User32.dll")
+    VK_CAPITAL = 0x14
+    return hllDll.GetKeyState(VK_CAPITAL) & 1
+
+def ensure_capslock_off():
+    if is_capslock_on():
+        pyautogui.press('capslock')
+        logging.info("CAPS LOCK was on. It has been turned off.")
+    else:
+        logging.info("CAPS LOCK is already off.")
+
+mylog_filename = 'C:/Users/kmallery/Documents/Kootenai_County_Assessor_CodeBase/Working_Kendall/Logs_Kendall/OccPost.log'
+
 logging.basicConfig(
-    filename='Occ_Post.log',
+    filename = mylog_filename,
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
@@ -16,156 +41,450 @@ console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 logging.getLogger().addHandler(console_handler)
 
-DEFAULT_PROVAL_PATH = "C:/Program Files (x86)/Thomson Reuters/ProVal/ProVal.exe"
-PROVAL_PATH = ('ProVal', 'executable_path')
+#AIN LOG PROCESSOR
+class AINLogProcessor:
+    def __init__(self, log_filename):
+        self.log_filename = log_filename
+        self.unique_ains = set()
+        self.today_date = datetime.now().strftime('%Y-%m-%d')
+        self.pattern = re.compile(r'Sent AIN (\d{6})')
 
-class Window:
-    def __init__(self, name, proval_path=DEFAULT_PROVAL_PATH):
-        self.name = name
-        self.proval_path = proval_path
+    def process_log(self):
+        # Open and read the log file
+        with open(self.log_filename, 'r') as log_file:
+            for line in log_file:
+                # Check if the line contains today's date
+                if self.today_date in line:
+                    # Search for the pattern in the line
+                    match = self.pattern.search(line)
+                    if match:
+                        # Add the matched AIN to the set
+                        self.unique_ains.add(match.group(1))
 
-    def get_proval_pid(self):
-            """Get the PID of the ProVal process."""
-            for proc in psutil.process_iter(['pid', 'name', 'exe']):
-                try:
-                    if proc.info['exe'] and os.path.normpath(proc.info['exe']) == os.path.normpath(self.proval_path):
-                        return proc.info['pid']
-                except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-                    pass
-            return None
-    
-    def focus_proval(self):
-        logging.debug("Attempting to focus ProVal window...")
-        try:
-            proval_pid = self.get_proval_pid()
-            if not proval_pid:
-                logging.debug("ProVal process not found.")
-                return False
-            app = Application().connect(process=proval_pid)
-            proval_windows = app.windows(title_re='ProVal', found_index=0)
-            if proval_windows:
-                self.proval_window_handle = proval_windows[0]
-                logging.debug(f"Found ProVal window: {self.proval_window_handle}")
-                self.proval_window_handle.set_focus()
-                time.sleep(1)
-                if self.proval_window_handle.has_focus():
-                    logging.debug("ProVal window is confirmed as active.")
-                    return True
-                else:
-                    logging.debug("Failed to activate ProVal window.")
-                    return False
-            else:
-                logging.debug("ProVal window not found.")
-                return False
-        except Exception as e:
-            logging.error(f"Error focusing ProVal window: {e}")
-            return False
+    def get_unique_ains(self):
+        # Convert the set to a sorted list if needed
+        return sorted(self.unique_ains)
 
-    def find_and_click(self, x, y):
-        logging.debug(f"Clicking at position ({x}, {y}) in {self.name}")
-        pyautogui.click(x, y)
-
-def wait(seconds):
-    pyautogui.sleep(seconds)
-
-def press_key(key):
-    pyautogui.press(key)
-
-def send_keys(text):
-    pyautogui.write(text)
-
-def ask_question(question) -> bool:
-    return pyautogui.confirm(text=question, title='Confirmation', buttons=['YES', 'NO']) == 'YES'
-
-def keyinfo(proval_window):
-    proval_window.focus_proval()
-    wait(2)
-    proval_window.find_and_click(996,584)
-    wait(1)
-    pyautogui.hotkey('ctrl', 'k')
-    wait(3)
-    return ask_question("Key Information is correct?")
-
-def pricing(proval_window):
-    proval_window.focus_proval()
-    wait(0.75)
-    press_key("enter")
-    wait(0.75)
-    press_key("esc")
-    wait(0.75)
-    pyautogui.hotkey('alt')
-    send_keys("vc")
-    wait(1)
-    proval_window.focus_proval()
-    proval_window.find_and_click(446,407)
-    wait(0.5)
-    proval_window.find_and_click(240,407)
-    wait(2.75)
-    proval_window.find_and_click(604,187)
-    wait(1)
-    return ask_question("Ready to edit the memo?")
-
-def memo(proval_window, method_of_posting, date_of_occupancy):
-    proval_window.focus_proval()
-    pyautogui.hotkey('ctrl', 'shift', 'm')
-    wait(1)
-    proval_window.focus_proval()
-    pyautogui.hotkey('n')
-    press_key("enter")
-    wait(1)
-    pyautogui.hotkey('ctrl', 'a')
-    press_key("backspace")
-    send_keys(f"POSTED - {method_of_posting} {date_of_occupancy}")
-    wait(1)
-    press_key("tab")
-    press_key("enter")
-    return ask_question("Ready to post?")
-
-def posting(proval_window, date_of_occupancy):
-    proval_window.focus_proval()
-    pyautogui.hotkey('ctrl', 's')
-    wait(2)
-    pyautogui.hotkey('alt')
-    wait(0.5)
-    send_keys("vp")
-    wait(1)
-    proval_window.focus_proval()
-    wait(0.5)
-    send_keys("2024")
-    press_key("tab")
-    send_keys(date_of_occupancy)
-    press_key("tab")
-    send_keys("0")
-    wait(1.75)
-    press_key("enter")
-    wait(1)
-    press_key("enter")
-    return ask_question("Next Parcel?")
-
-def next_parcel(proval_window):
-    proval_window.find_and_click(615,165)
-    wait(1)
-    press_key("f3")
-
-def main():
-    proval_window = Window("ProVal")
-    
-    method_of_posting = pyautogui.prompt("Enter Method of Posting:")
-    date_of_occupancy = pyautogui.prompt("Enter Date of Occupancy:")
-
-    if not proval_window.focus_proval():
-        logging.error("Failed to focus ProVal window. Exiting.")
-        return
-
-    press_key("f9")
-    wait(2)
-
-    if ask_question("Allocations are correct?"):
-        if keyinfo(proval_window):
-            if pricing(proval_window):
-                if memo(proval_window, method_of_posting, date_of_occupancy):
-                    if posting(proval_window, date_of_occupancy):
-                        next_parcel(proval_window)
+    def print_unique_ains(self):
+        unique_ains_list = self.get_unique_ains()
+        print(f"Unique AINs count for {self.today_date}: {len(unique_ains_list)}")
+        for ain in unique_ains_list:
+            print(ain)
 
 if __name__ == "__main__":
-    main()
+    log_processor = AINLogProcessor(mylog_filename)
+
+#KILL SCRIPT
+stop_script = False
+
+def monitor_kill_key():
+    global stop_script
+    logging.info("Kill key monitor started. Press 'esc' to stop the script.")
+    keyboard.wait('esc')  # Set 'esc' as the kill key
+    stop_script = True
+    logging.info("Kill key pressed. Stopping the script...")
+    sys.exit("Script terminated")
+
+kill_key_thread = threading.Thread(target=monitor_kill_key)
+kill_key_thread.daemon = True
+kill_key_thread.start()
+
+#GRAPHIC USER INTERFACE
+MemoTXT = ""
+
+def on_submit():
+    ensure_capslock_off()
+
+    global AIN, PDATE, PostingType, MemoTXT, AIN_str
+
+    AIN = [ain.strip() for ain in entry_ain.get().strip().upper().split(",")]
+    AIN_str = ', '.join(AIN)
+
+    PDATE = entry_postdate.get().strip().upper()
+    PostingType = combobox_postingtype.get().strip().upper()
+
+    MemoTXT = f"POSTED - {PostingType} {PDATE}"
+    logging.info(f"Generated MemoTXT: {MemoTXT}")
+
+    if  not PDATE or not PostingType or not MemoTXT:
+        messagebox.showerror("Input Error", "All input fields are required.")
+        return
+
+    root.destroy()
+
+def setup_gui():
+    root = tk.Tk()
+    root.title("User Input Form")
+    setup_widgets(root)
+    return root
+
+def setup_widgets(root):
+    global entry_ain, entry_postdate, combobox_postingtype
+    current_year = datetime.now().year
+
+    ttk.Label(root, text="AIN to post").grid(column=0, row=0, padx=10, pady=5)
+    entry_ain = ttk.Entry(root, width=50)
+    entry_ain.grid(column=1, row=0, padx=10, pady=5)
+
+    ttk.Label(root, text="Posting Date:").grid(column=0, row=3, padx=10, pady=5)
+    entry_postdate = ttk.Entry(root, width=50)
+    entry_postdate.grid(column=1, row=3, padx=10, pady=5)
+    posting_types = [
+        "HOEX", "FV", "CO", "BF", "OWNER", "TRANSFER"
+    ]
+    combobox_postingtype = ttk.Combobox(root, values=posting_types, width=47)
+    combobox_postingtype.grid(column=1, row=6, padx=10, pady=5)
+    combobox_postingtype.current(0)  # Set default selection to the first item
+
+    submit_button = ttk.Button(root, text="Submit", command=on_submit)
+    submit_button.grid(column=0, row=8, columnspan=2, pady=20)
+
+root = setup_gui()
+
+#SET FOCUS
+def set_focus(window_title):
+    windows = pyautogui.getWindowsWithTitle(window_title)
+    if windows:
+        window = windows[0]
+        window.activate()
+        logging.info(f"Set focus to window: {window_title}")
+        return True
+    else:
+        logging.warning(f"Window not found: {window_title}")
+        return False
+
+#PRESS & CLICK KEY LOGIC
+def press_key_with_modifier_multiple_times(modifier, key, times):
+    for _ in range(times):
+        if stop_script:
+            logging.info("Script stopping due to kill key press.")
+            break
+        pyautogui.hotkey(modifier, key)
+
+def press_key_multiple_times(key, times):
+    for _ in range(times):
+        if stop_script:
+            logging.info("Script stopping due to kill key press.")
+            break
+        pyautogui.press(key)
+
+#OCR / IMAGE RECOGNITION
+    ##Link https://github.com/tesseract-ocr/tesseract
+    ##Link https://github.com/UB-Mannheim/tesseract/wiki
+pytesseract.pytesseract.tesseract_cmd = r'C:\Users\kmallery\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'
+
+##IMAGE PATHS => Images w/ Multiple Variations
+land_tab_images = [
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_land_tab.PNG',
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_land_tab_active.PNG'
+]
+land_base_tab_images = [
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_land_base_tab.PNG',
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_land_base_tab_active.PNG'
+]
+permits_tab_images = [
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permits_tab.PNG',
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permits_tab_active.PNG'
+]
+
+permits_add_permit_button = [
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permits_add_permit_button.PNG',
+    r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permits_add_permit_button_active.PNG'
+]
+
+##IMAGE PATHS => Images w/ Single Variation
+duplicate_memo_image_path = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_duplicate.PNG'
+add_field_visit_image_path = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permits_add_fieldvisit_button.PNG'
+aggregate_land_type_add_button = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_aggregate_land_type_add_button.PNG'
+farm_total_acres_image = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_farm_total_acres.PNG'
+permit_description = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_permit_description.PNG'
+memos_land_information_ = r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memos_land_information_.PNG'
+pricing_selectall =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png'
+NC24Memo =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png'
+history =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png'
+
+#PROCESSING OCR IMAGES: STEP 1 - CAPTURE SCREEN IN GREYSCALE
+def capture_and_convert_screenshot():
+    screenshot = pyautogui.screenshot()
+    screenshot_np = np.array(screenshot)
+    screenshot_np = cv2.cvtColor(screenshot_np, cv2.COLOR_RGB2BGR)
+    grey_screenshot = cv2.cvtColor(screenshot_np, cv2.COLOR_BGR2GRAY)
+    return grey_screenshot
+
+#PROCESSING OCR IMAGES: STEP 2 - CLICK USING A REFERENCE GREYSCALE SCREENSHOT TO A STORED GREYSCALE IMAGE INCLUDES ABILITY TO CLICK RELATIVE POSITION
+def click_on_image(image_path, direction='center', offset=10, inset=7, confidence=0.75):
+    grey_screenshot = capture_and_convert_screenshot()
+    ref_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    if ref_image is None:
+        logging.error(f"Failed to load reference image from {image_path}")
+        return False
+    # Perform template matching
+    result = cv2.matchTemplate(grey_screenshot, ref_image, cv2.TM_CCOEFF_NORMED)
+    _, max_val, _, max_loc = cv2.minMaxLoc(result)
+    if max_val >= confidence:
+        top_left = max_loc
+        h, w = ref_image.shape
+        right = top_left[0] + w
+        bottom = top_left[1] + h
+    # Calculate click position based on direction and inset/offset
+        click_positions = {
+            'right': (right + offset, top_left[1] + h // 2),
+            'left': (top_left[0] - offset, top_left[1] + h // 2),
+            'above': (top_left[0] + w // 2, top_left[1] - offset),
+            'below': (top_left[0] + w // 2, bottom + offset),
+            'bottom_right_corner': (right - inset, bottom - inset),
+            'bottom_left_corner': (top_left[0] + inset, bottom - inset),
+            'top_right_corner': (right - inset, top_left[1] + inset),
+            'top_left_corner': (top_left[0] + inset, top_left[1] + inset),
+            'bottom_center': (top_left[0] + w // 2, bottom - inset),
+            'top_center': (top_left[0] + w // 2, top_left[1] + inset),
+            'center': (top_left[0] + w // 2, top_left[1] + h // 2)
+        }
+        click_x, click_y = click_positions[direction]
+    # Perform the click
+        pyautogui.click(click_x, click_y)
+        logging.info(f"Clicked {direction} of the image at ({click_x}, {click_y})")
+        return True
+    else:
+        logging.warning(f"No good match found at the confidence level of {confidence}.")
+        return False
+
+#PROCESSING OCR IMAGES: STEP 3 - USING click_on_image FUNCTION
+    #Specific Click Functions Here, See click_on_image for directionals, and image pathes for images
+def click_images_multiple(paths, direction='center', offset=50, inset=7, confidence=0.75):
+    for image_path in paths:
+        logging.info(f"Trying to click {direction} on image: {image_path}")
+        if click_on_image(image_path, direction=direction, offset=offset, inset=inset, confidence=confidence):
+            logging.info(f"Successfully clicked {direction} of {image_path}.")
+            return True
+        else:
+            logging.warning(f"Failed to click {direction} of {image_path}.")
+    return False
+
+def click_image_single(image_path, direction='center', offset=50, inset=7, confidence=0.75):
+    logging.info(f"Trying to click {direction} on image: {image_path}")
+    if click_on_image(image_path, direction=direction, offset=offset, inset=inset, confidence=confidence):
+        logging.info(f"Successfully clicked {direction} of {image_path}.")
+        return True
+    else:
+        logging.warning(f"Failed to click {direction} of {image_path}.")
+    return False
+
+# 4 CHECKING IF IMAGE IS PRESENT
+def is_image_found(image_path, confidence=0.75):
+    # Use the existing function to capture and convert the screenshot
+    grey_screenshot = capture_and_convert_screenshot()
+    # Load the reference image in greyscale
+    ref_image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+    if ref_image is None:
+        logging.error(f"Failed to load reference image from {image_path}")
+        return False
+    # Perform template matching
+    result = cv2.matchTemplate(grey_screenshot, ref_image, cv2.TM_CCOEFF_NORMED)
+    _, max_val, _, _ = cv2.minMaxLoc(result)
+    found = max_val >= confidence
+    if found:
+        logging.info(f"Image found with confidence {max_val}: {image_path}")
+    else:
+        logging.info(f"Image not found with sufficient confidence {confidence}: {image_path}")
+    return found
+#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#_#
+
+# Start the GUI event loop
+root.mainloop()
+if  not PDATE or not PostingType or not MemoTXT:
+    messagebox.showerror("Input Error", "All input fields are required.")
+    sys.exit()
+
+logging.info(f"Variables Created:")
+logging.info(f"AIN: {AIN}")
+logging.info(f"AIN: {AIN_str}")
+logging.info(f"PostingType: {PostingType}")
+logging.info(f"MemoTXT: {MemoTXT}")
+logging.info(f"PDATE: {PDATE}")
+
+# Process each AIN individually
+set_focus("ProVal")
+time.sleep(1)
+logging.info("set_focus(ProVal)")
+pyautogui.hotkey('win', 'up')
+
+#Process: Open an AIN in ProVal
+set_focus("ProVal")
+time.sleep(1)
+
+logging.info("set_focus(ProVal)")
+pyautogui.hotkey('ctrl', 'o')
+time.sleep(1)
+
+logging.info("hotkey")
+press_key_multiple_times('up', 12)
+logging.info("press_key_multiple_times")
+press_key_multiple_times('down', 4)
+logging.info("press_key_multiple_times")
+pyautogui.press(['tab'])
+logging.info("press")
+pyautogui.press(['delete'])
+logging.info("press")
+ensure_capslock_off()
+time.sleep(1)
+
+pyautogui.typewrite(str(AIN_str))
+logging.info(f"Sent AIN {AIN_str}.")
+time.sleep(1)
+
+pyautogui.press('enter')
+time.sleep(1)
+
+logging.info(f"Close Pop-Up, Open the {AIN_str}")
+set_focus("ProVal")
+time.sleep(1)
+
+logging.info("set_focus(ProVal)")
+pyautogui.hotkey('win', 'up')
+if stop_script:
+    logging.info("Script stopping due to kill key press.")
+    sys.exit()
+
+#Process: Open Allocations
+pyautogui.hotkey('F9')
+time.sleep(1)
+logging.info("Allocations opened.")
+stop_script
+
+#Prompt User: Check Allocations
+root = tk.Tk()
+root.withdraw()
+result = messagebox.askquestion("Question", "Do you want to continue?")
+if result == 'yes':
+    logging.info("User clicked Yes")
+    time.sleep(1) 
+    set_focus("Cost Allocations")
+    time.sleep(1)  
+    pyautogui.hotkey('alt','n')
+    time.sleep(2)
+else:
+    stop_script
+    logging.info("User pressed no. Script stopped.")
+stop_script
+
+#Process: Key Info
+pyautogui.hotkey('ctrl','k')
+time.sleep(1)
+logging.info("Key Information opened.")
+stop_script
+
+#Prompt User: Check Key Information
+root = tk.Tk()
+root.withdraw()
+result = messagebox.askquestion("Question", "Do you want to continue?")
+if result == 'yes':
+    logging.info("User clicked Yes")
+    set_focus("Key Information")
+    time.sleep(1)
+    pyautogui.press('enter')
+    pyautogui.press('esc')
+    stop_script
+else:
+    stop_script
+    logging.info("User pressed no. Script stopped.")
+stop_script
+
+#Process: Price Parcel
+pyautogui.hotkey('alt','v','c')
+time.sleep(1)
+logging.info("Opened pricing window.")
+stop_script
+
+#Process: Find and Click Select All & OK
+if click_image_single(pricing_selectall, direction='center', confidence=0.75):
+    time.sleep(1)
+    press_key_multiple_times('left', 2)
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    logging.info("Pricing...")
+    time.sleep(4)
+    stop_script
+else:
+    stop_script
+    logging.info("Unable to locate. Script stopped.")
+stop_script
+
+#Process: Find and Click the Values History sub-tab
+if click_image_single(history, direction='center', confidence=0.75):
+    time.sleep(4)
+    stop_script
+else:
+    stop_script
+    logging.info("Unable to locate. Script stopped.")
+stop_script
+
+#Prompt User: Check value
+root = tk.Tk()
+root.withdraw()
+result = messagebox.askquestion("Question", "Do you want to continue?")
+if result == 'yes':
+    logging.info("User clicked Yes")
+    time.sleep(1)
+    set_focus("ProVal")
+    time.sleep(1)
+    stop_script
+else:
+    stop_script
+    logging.info("User pressed no. Script stopped.")
+stop_script
+
+#Process: Open Memos
+pyautogui.hotkey('ctrl', 'shift', 'm')
+time.sleep(1)
+stop_script
+
+#Process: Find and Click NC24 Memo
+if click_image_single(NC24Memo, direction='center', confidence=0.75):
+    time.sleep(1)
+    pyautogui.press('enter')
+    time.sleep(1)
+    pyautogui.hotkey('ctrl', 'a')
+    time.sleep(1)
+    pyautogui.typewrite(MemoTXT)
+    time.sleep(1)
+    pyautogui.press('tab')
+    time.sleep(1)
+    pyautogui.press('enter')
+    root = tk.Tk()
+    root.withdraw()
+    result = messagebox.askquestion("Question", "Do you want to continue?")
+    if result == 'yes':
+        logging.info("User clicked Yes")
+        stop_script
+    else:
+        stop_script
+        logging.info("User pressed no. Script stopped.")
+    stop_script
+else:
+    stop_script
+    logging.info("Unable to locate. Script stopped.")
+stop_script
+
+#Process: Save Account
+pyautogui.hotkey('ctrl', 's')
+logging.info("Save.")
+time.sleep(1)
+stop_script
+
+#Process: Post Parcel
+pyautogui.hotkey('alt', 'v', 'p')
+logging.info("Posting...")
+time.sleep(1)
+pyautogui.typewrite("2024")
+
+time.sleep(4)
+stop_script
+
+#End of Script
+logging.info("THE END...")
+time.sleep(1)
+log_processor.process_log()
+log_processor.print_unique_ains()
+logging.info("ALL_STOP_NEXT")
