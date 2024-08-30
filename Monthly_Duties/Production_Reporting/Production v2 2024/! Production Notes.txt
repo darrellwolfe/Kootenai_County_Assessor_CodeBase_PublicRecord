@@ -26,13 +26,17 @@ Power Query Driven, Data Model, Power Pivots, DAX Formulas
 
 Reval DAX:
 TotalParcels:=CALCULATE(DISTINCTCOUNT(CTE_Production_Reval[lrsn]))
-FieldedDatesCompleted:=CALCULATE(COUNTA([FieldedDate]))
-    PercentFielded:=[FieldedDatesCompleted]/[TotalParcels]
 
-AppraisedDatesCompleted:=CALCULATE(COUNTA([AppraisedDate]))
-    PercentAppraised:=[AppraisedDatesCompleted]/[TotalParcels]
-RYMemos_Completed:=CALCULATE(COUNTA(CTE_Production_Reval[RY_Memos]))
-    PercentRYMemosCompleted:=[RYMemos_Completed]/[TotalParcels]
+
+
+
+
+
+
+
+
+
+
 
 
 Permits DAX: 
@@ -42,6 +46,10 @@ Count Of Completed Permits:=CALCULATE(DISTINCTCOUNT(CTE_Production_Permits[REFER
 
     Percent of total permits OPEN:=[Count Of Open Permits]/[Count Of Permits]
     Percent of total permits CLOSED:=[Count Of Completed Permits]/[Count Of Permits]
+
+
+
+
 
 Timber DAX:
 Count of Timber Worked Parcels:=CALCULATE(DISTINCTCOUNT(CTE_Production_TimberAg[lrsn]))

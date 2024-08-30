@@ -2,11 +2,10 @@
 
 
 SELECT
-    p1.neighborhood
-,    p1.permit_type_desc
-,    p1.permit_count
-,    COALESCE(p2.permits_closed_count, 0) AS permits_closed_count
-
+    p1.neighborhood,
+    p1.permit_type_desc,
+    p1.permit_count,
+    COALESCE(p2.permits_closed_count, 0) AS permits_closed_count
 FROM
     (
         SELECT

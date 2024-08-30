@@ -27,12 +27,14 @@ else if Text.Contains([Permit Type], "COM -") then "3"
 else if Text.Contains([Permit Type], "MULTI") then "1"
 else if Text.Contains([Permit Type], "SINGLE") then "1"
 else if Text.Contains([Permit Type], "DUPLEX") then "1"
+
 //RESIDENTIAL ADD ALT 3
 else if Text.Contains([Permit Type], "ADDITION") then "3"
 else if Text.Contains([Permit Type], "ALTERATION") then "3"
 else if Text.Contains([Permit Type], "DECK") then "3"
 else if Text.Contains([Permit Type], "PORCH") then "3"
 else if Text.Contains([Permit Type], "PATIO") then "3"
+
 //RESIDENTIAL OUTBUILDING 4
 else if Text.Contains([Permit Type], "POLE") then "4"
 else if Text.Contains([Permit Type], "BARN") then "4"

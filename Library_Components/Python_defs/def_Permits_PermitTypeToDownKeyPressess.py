@@ -1,3 +1,6 @@
+
+
+
 def get_permit_type_up_key_pressess(description):
     # Dictionary mapping permit descriptions to their codes
     permit_type_codes = {

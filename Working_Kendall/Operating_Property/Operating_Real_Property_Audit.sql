@@ -10,4 +10,4 @@ FROM TSBv_PARCELMASTER AS p
 WHERE p.DisplayDescr LIKE '% TCO%'
   AND p.EffStatus = 'A'
   
-ORDER BY p.ClassCd ASC
+ORDER BY p.pin

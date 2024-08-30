@@ -2,6 +2,10 @@
 
 
 
+DECLARE @CurrentYear INT = YEAR(GETDATE());
+
+DECLARE @CurrentDate DATE = GETDATE();
+
 --FIRST Year of Reval Cycle
 DECLARE @FirstYearOfRevalCycle INT = 2023; 
 --FIRST ACTUAL FUNCTIONAL Year of Reval Cycle
@@ -21,11 +25,10 @@ DECLARE @FunctionalYearTO DATE = CAST(CAST(@FirstFunctionalYearOfRevalCycle+5 AS
 
 WITH 
 
----------------------------------------
---CTE_Memos_RY
----------------------------------------
-
-CTE_Memos_RY AS (
+CTE_ParcelMaster AS (
+--------------------------------
+--ParcelMaster
+--------------------------------
 Select Distinct
 CASE
   WHEN pm.neighborhood >= 9000 THEN 'Manufactured_Homes'
@@ -50,84 +53,79 @@ CASE
   WHEN pm.neighborhood = 0 THEN 'Other (PP, OP, NA, Error)'
   ELSE NULL
 END AS District
-
 -- # District SubClass
 ,pm.neighborhood AS GEO
 ,TRIM(pm.NeighborHoodName) AS GEO_Name
 ,pm.lrsn
 ,TRIM(pm.pin) AS PIN
 ,TRIM(pm.AIN) AS AIN
---,m.lrsn AS mlrsn
-,m.memo_id AS RYYear
---,m.memo_text AS RY_Memo
-,STRING_AGG(CAST(mtext.memo_text AS VARCHAR(MAX)), ', ') AS RY_Memos
+,pm.EffStatus AS Account_Status
 
-,DATEADD(YEAR, CAST(SUBSTRING(m.memo_id, 3, 2) AS INT) - CAST(SUBSTRING(@MemoIDYear1, 3, 2) AS INT), @FunctionalYearFROM) AS CycleStartDate
-,DATEADD(YEAR, CAST(SUBSTRING(m.memo_id, 3, 2) AS INT) - CAST(SUBSTRING(@MemoIDYear1, 3, 2) AS INT), DATEADD(DAY, -1, DATEADD(YEAR, 1, @FunctionalYearFROM))) AS CycleEndDate
+From TSBv_PARCELMASTER AS pm
 
-
-FROM TSBv_PARCELMASTER AS pm
-
-LEFT JOIN memos AS m
-  On m.lrsn=pm.lrsn
-  And m.status = 'A'
-  And m.memo_line_number = '1'
-  And m.memo_id IN (@MemoIDYear1,@MemoIDYear2,@MemoIDYear3,@MemoIDYear4,@MemoIDYear5)
-
-LEFT JOIN memos AS mtext
-  On m.lrsn=mtext.lrsn
-  And mtext.status = 'A'
-  And mtext.memo_line_number <> '1'
-  And mtext.memo_id IN (@MemoIDYear1,@MemoIDYear2,@MemoIDYear3,@MemoIDYear4,@MemoIDYear5)
-
-WHERE pm.EffStatus = 'A'
-  AND pm.ClassCD NOT LIKE '070%'
+WHERE pm.ClassCD NOT LIKE '070%'
   And (pm.PIN NOT LIKE 'E%'
   And pm.PIN NOT LIKE 'UP%'
-  And pm.PIN NOT LIKE 'G00')
+  And pm.PIN NOT LIKE 'G00%'
+  And pm.PIN NOT LIKE 'KC%')
 
-GROUP BY
---m.lrsn
-pm.lrsn
-,pm.pin
-,pm.AIN
-,m.memo_id
-,pm.neighborhood
-,pm.NeighborHoodName
+--pm.EffStatus = 'A'
+
 
 ),
 
 CTE_Permits AS (
 Select
 p.lrsn
-, TRIM(p.permit_ref) AS REFERENCENum
-, TRIM(p.permit_desc) AS DESCRIPTION
-, TRIM(c.tbl_element_desc) AS PERMIT_TYPE
-,p.status
-, CASE
-    WHEN f.field_person IS NOT NULL
-      --AND f.need_to_visit = 'N'
-      AND p.status = 'I'
-      AND f.date_completed IS NOT NULL
-      THEN 'Completed'
-    WHEN f.field_person IS NULL
-      --AND f.need_to_visit = 'N'
-      AND p.status = 'I'
-      AND f.date_completed IS NULL
-      THEN 'Completed_MissingFV'
-    ELSE 'Open'
-  END AS 'PermitStatus'
+
+
+,p.status AS Permit_Status
+
 , CAST(p.filing_date AS DATE) AS FILING_DATE
 , CAST(f.field_out AS DATE) AS WORK_ASSIGNED_DATE
 
 , CAST(f.date_completed AS DATE) AS COMPLETED_DATE
-, TRIM(f.field_person) AS APPRAISER
+
+, UPPER(TRIM(f.field_person)) AS APPRAISER
 , f.need_to_visit AS NEED_TO_VISIT
 
+, UPPER(TRIM(p.permit_ref)) AS REFERENCENum
+, TRIM(p.permit_desc) AS DESCRIPTION
+, TRIM(c.tbl_element_desc) AS PERMIT_TYPE
+
+, CASE
+
+    -- Filtered Inactive_Or_Moved out of final results
+    WHEN p.status = 'I'
+      AND f.date_completed IS NULL
+      THEN 'Inactive_Or_Moved'
+
+    -- For final results
+    WHEN p.status = 'I'
+      AND f.date_completed IS NOT NULL
+      THEN 'Completed'
+
+    WHEN f.field_person IS NOT NULL
+      AND f.date_completed IS NOT NULL
+      THEN 'Completed'
+  
+    WHEN f.field_person IS NULL
+      AND f.date_completed IS NULL
+      THEN 'Open'
+
+    ELSE 'Open'
+  
+  END AS 'PermitStatus'
+
+
+
 ,YEAR(f.date_completed) AS Compl_Year
-,MONTH(f.date_completed) AS Compl_Month
-,DAY(f.date_completed) AS Compl_Day
-,DATENAME(MONTH, f.date_completed) AS Compl_MonthName
+--,MONTH(f.date_completed) AS Compl_Month
+--,DAY(f.date_completed) AS Compl_Day
+--,DATENAME(MONTH, f.date_completed) AS Compl_MonthName
+,CONCAT(MONTH(f.date_completed),'_',DATENAME(MONTH, f.date_completed)) AS Compl_MonthName
+
+
 
 From permits AS p
 
@@ -145,53 +143,69 @@ LEFT JOIN codes_table AS c
 WHERE p.[status]='A'
   OR (p.[status]='I' 
     AND ((f.date_completed BETWEEN @FunctionalYearFROM AND @FunctionalYearTO
-      OR f.date_completed IS NULL)
-    AND (f.field_out BETWEEN @FunctionalYearFROM AND @FunctionalYearTO
-      OR f.field_out IS NULL)))
+      OR f.date_completed IS NULL)))
+--    AND (f.field_out BETWEEN @FunctionalYearFROM AND @FunctionalYearTO
+--      OR f.field_out IS NULL)))
 --p.filing_date BETWEEN @FunctionalYearFROM AND @FunctionalYearTO
 
 )
 
 
 Select Distinct 
-rymemo.District
-,rymemo.GEO
-,rymemo.GEO_Name
-,rymemo.lrsn
-,rymemo.PIN
-,rymemo.AIN
-,cp.FILING_DATE
-,cp.WORK_ASSIGNED_DATE
+
+pmd.District
+,pmd.GEO
+,pmd.GEO_Name
+,pmd.PIN
+,pmd.AIN
+
+,pmd.Account_Status
+,cp.Permit_Status
+
+,cp.PermitStatus
 ,cp.COMPLETED_DATE
-,UPPER(cp.APPRAISER) AS APPRAISER
+,cp.APPRAISER
+
 ,cp.NEED_TO_VISIT
-,UPPER(cp.REFERENCENum) AS REFERENCENum
+,cp.WORK_ASSIGNED_DATE
+,cp.FILING_DATE
+
+,cp.REFERENCENum
 ,cp.DESCRIPTION
 ,cp.PERMIT_TYPE
-,cp.status
-,cp.PermitStatus
+
 ,cp.Compl_Year
-,cp.Compl_Month
-,cp.Compl_Day
 ,cp.Compl_MonthName
-,rymemo.CycleStartDate
-,rymemo.CycleEndDate
-,rymemo.RYYear
-,rymemo.RY_Memos
 
-
-From CTE_Memos_RY AS rymemo
-
-Join CTE_Permits AS cp
-  On cp.lrsn = rymemo.lrsn
+From CTE_Permits AS cp
+--  On cp.lrsn = rymemo.lrsn
 --  And cp.WORK_ASSIGNED_DATE BETWEEN rymemo.CycleStartDate AND rymemo.CycleEndDate
 
-Where cp.WORK_ASSIGNED_DATE IS NOT NULL
+Join CTE_ParcelMaster AS pmd
+  On pmd.lrsn = cp.lrsn
+
+Where cp.PermitStatus IN ('Completed','Open')
+--And cp.WORK_ASSIGNED_DATE IS NOT NULL -- Rulling out those missing field visits entirely
+--And cp.WORK_ASSIGNED_DATE IS NULL -- Rulling out those missing field visits entirely
+And cp.Compl_Year IN (@CurrentYear)
+
+--If you need December numbers in January Use This::
+--And cp.Compl_Year IN (@CurrentYear-1)
 
 Order by District, GEO, PIN;
 
 
+/*
 
+Active Permits
+AND
+Inactive permits with a Completed Date in the five year reval cycle
+
+WHERE p.[status]='A'
+  OR (p.[status]='I' 
+    AND ((f.date_completed BETWEEN @FunctionalYearFROM AND @FunctionalYearTO
+      OR f.date_completed IS NULL)
+*/
 
 
 

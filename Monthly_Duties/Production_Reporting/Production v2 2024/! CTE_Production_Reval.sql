@@ -13,6 +13,10 @@ Where pm.EffStatus = 'A'
 
 */
 
+DECLARE @CurrentYear INT = YEAR(GETDATE());
+
+DECLARE @CurrentDate DATE = GETDATE();
+
 --FIRST Year of Reval Cycle
 DECLARE @FirstYearOfRevalCycle INT = 2023; 
 --FIRST ACTUAL FUNCTIONAL Year of Reval Cycle
@@ -161,8 +165,10 @@ rymemo.District
 ,rymemo.CycleEndDate
 
 ,CASE
+
   WHEN TRIM(rymemo.RYYear) IS NULL
     THEN 'NotAssignedRYMemoYet'
+
   WHEN TRIM(rymemo.RY_Memos) IS NOT NULL
     AND TRIM(rymemo.RYYear) IS NOT NULL
     AND ap.AppraisedDate IS NOT NULL
@@ -171,17 +177,59 @@ rymemo.District
     AND fv.Appraiser_Fielded IS NOT NULL
     THEN 'Complete'
   ELSE 'Check_All_Fields>>'
-END AS RYCompleteCheck
+
+END AS Reval_Status_Check
+
+
+,CASE
+  WHEN TRIM(rymemo.RYYear) IS NULL
+    THEN 'NotAssignedRYMemoYet'
+
+  WHEN fv.FieldedDate IS NOT NULL
+    AND fv.Appraiser_Fielded IS NOT NULL
+    THEN 'Completed_IR_Fielded'
+    
+  ELSE 'Check_IR_Fielded>>'
+END AS IR_Fielded_Check
+
+
+,CASE
+  WHEN TRIM(rymemo.RYYear) IS NULL
+    THEN 'NotAssignedRYMemoYet'
+
+  WHEN ap.AppraisedDate IS NOT NULL
+    AND ap.Appraiser_Appraised IS NOT NULL 
+    THEN 'Completed_IR_Appraised'
+    
+  ELSE 'Check_IR_Appraised>>'
+END AS IR_Appraised_Check
+
+
+,CASE
+  WHEN TRIM(rymemo.RYYear) IS NULL
+    THEN 'NotAssignedRYMemoYet'
+
+  WHEN TRIM(rymemo.RY_Memos) IS NOT NULL
+    AND TRIM(rymemo.RYYear) IS NOT NULL
+    THEN 'Completed_RY_Memo'
+
+  ELSE 'Check_RY_Memo>>'
+
+END AS RY_Memo_Check
+
+
+,'Details>>>' AS Details
+
+,UPPER(TRIM(fv.Appraiser_Fielded)) AS Appraiser_Fielded
+,fv.FieldedDate
+
+,UPPER(TRIM(ap.Appraiser_Appraised)) AS Appraiser_Appraised
+,ap.AppraisedDate
 
 ,rymemo.RYYear
 ,rymemo.RY_Memos
 ,TRIM(REPLACE(LEFT(rymemo.RY_Memos,4),'-','')) AS MemoApsrInitial
 
-,UPPER(TRIM(ap.Appraiser_Appraised)) AS Appraiser_Appraised
-,ap.AppraisedDate
-
-,UPPER(TRIM(fv.Appraiser_Fielded)) AS Appraiser_Fielded
-,fv.FieldedDate
 
 From CTE_Memos_RY AS rymemo
 
@@ -201,9 +249,37 @@ Where GEO <> 0
 
 )
 
-Select *
-From CTE_Final
+Select 
+--revalfinal.*
+revalfinal.District
+,revalfinal.GEO
+,revalfinal.GEO_Name
+--,revalfinal.lrsn
+,revalfinal.PIN
+,revalfinal.AIN
+
+,revalfinal.Reval_Status_Check
+,revalfinal.IR_Fielded_Check
+,revalfinal.IR_Appraised_Check
+,revalfinal.RY_Memo_Check
+,revalfinal.Details
+,revalfinal.Appraiser_Fielded
+,revalfinal.FieldedDate
+,revalfinal.Appraiser_Appraised
+,revalfinal.AppraisedDate
+,revalfinal.RYYear
+,revalfinal.RY_Memos
+,revalfinal.MemoApsrInitial
+
+,CAST(@CurrentDate AS DATE) AS Today
+,revalfinal.CycleStartDate
+,revalfinal.CycleEndDate
+
+From CTE_Final AS revalfinal
 Where RowNumber = 1
+--And Reval_Status_Check <> 'Complete'
+And CycleStartDate < @CurrentDate
+And CycleEndDate > @CurrentDate
 
 
 Order By District,GEO,PIN;

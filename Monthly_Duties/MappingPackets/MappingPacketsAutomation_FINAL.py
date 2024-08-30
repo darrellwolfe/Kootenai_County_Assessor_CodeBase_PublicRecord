@@ -60,6 +60,10 @@ def ensure_capslock_off():
     else:
         logging.info("CAPS LOCK is already off.")
 
+# To use in script
+# ensure_capslock_off()
+
+
 
 """
 # GLOBAL LOGICS - CONNECTIONS
@@ -67,14 +71,13 @@ def ensure_capslock_off():
 
 
 ### Logging
-#'S:/Common/Comptroller Tech/Reports/Python/Auto_Mapping_Packet/MappingPacketsAutomation.log'
 
-#This log will pull through to my working folder when I push git changes.... 
-#'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell\Logs_Darrell/MappingPacketsAutomation.log'
-
+# This will call into both the logging config and the AINLogProcessor config
 #mylog_filename = 'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell\Logs_Darrell/MappingPacketsAutomation.log'
 mylog_filename = 'S:/Common/Comptroller Tech/Reports/Python/Auto_Mapping_Packet/MappingPacketsAutomation.log'
 
+
+## Logging config
 logging.basicConfig(
     filename = mylog_filename,
     level=logging.DEBUG,
@@ -85,7 +88,12 @@ console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
 logging.getLogger().addHandler(console_handler)
 
+# Call this in script
+#logging.info("Whatever I write here will print outinto the log.")
+#logging.info(f"Place an f in front of text in double quots and variable in cruly brackets {DBAIN}} to have that variable output show up in the log.")
 
+
+# This counts the AINs sent within your log, makes a unique list, and counts the list to show you how many you did today
 class AINLogProcessor:
     def __init__(self, log_filename):
         self.log_filename = log_filename
@@ -129,7 +137,6 @@ if __name__ == "__main__":
 
 
 
-
 ### Kill Script
 
 # Global flag to indicate if the script should be stopped
@@ -147,6 +154,15 @@ def monitor_kill_key():
 kill_key_thread = threading.Thread(target=monitor_kill_key)
 kill_key_thread.daemon = True
 kill_key_thread.start()
+
+# Just call this in your final script
+# stop_script 
+
+# Or this
+# if stop_script:
+#     logging.info("Script stopping due to kill key press.")
+#     stop_script
+
 
 
 
@@ -339,6 +355,10 @@ def set_focus(window_title):
         logging.warning(f"Window not found: {window_title}")
         return False
 
+
+
+
+
 #### PRESS & CLICK KEY LOGIC
 def press_key_with_modifier_multiple_times(modifier, key, times):
     for _ in range(times):
@@ -353,6 +373,10 @@ def press_key_multiple_times(key, times):
             logging.info("Script stopping due to kill key press.")
             break
         pyautogui.press(key)
+
+
+
+
 
 
 
