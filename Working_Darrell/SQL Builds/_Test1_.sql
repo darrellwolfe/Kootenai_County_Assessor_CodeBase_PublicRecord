@@ -1,17 +1,10 @@
 
 
-DECLARE @CurrentYear INT = YEAR(GETDATE());
+Select Distinct Top 1
+TRIM(pm.SitusCity) AS SitusCity,
+LEN(TRIM(pm.SitusCity)) AS Length
+From TSBv_PARCELMASTER AS pm
 
+Where LEN(TRIM(pm.SitusCity)) > 0
 
-SELECT
-    lrsn,
-    TRIM(ModifierDescr) AS URD,
-    ModifierPercent AS URDPerc,
-    OverrideAmount AS URD_Amount,
-    ExpirationYear
-
-FROM TSBv_MODIFIERS
-WHERE ModifierStatus='A'
-AND ModifierDescr LIKE '%URD%'
-AND PINStatus='A'
-AND ExpirationYear > @CurrentYear
+Order by LEN(TRIM(pm.SitusCity)) ASC

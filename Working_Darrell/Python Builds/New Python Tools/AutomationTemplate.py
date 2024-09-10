@@ -73,8 +73,8 @@ def ensure_capslock_off():
 ### Logging
 
 # This will call into both the logging config and the AINLogProcessor config
-mylog_filename = 'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell/Logs_Darrell/MappingPacketsAutomation.log'
-#mylog_filename = 'S:/Common/Comptroller Tech/Reports/Python/Auto_Mapping_Packet/MappingPacketsAutomation.log'
+#mylog_filename = 'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell\Logs_Darrell/MappingPacketsAutomation.log'
+mylog_filename = 'S:/Common/Comptroller Tech/Reports/Python/Auto_Mapping_Packet/MappingPacketsAutomation.log'
 
 
 ## Logging config
@@ -305,8 +305,8 @@ def setup_widgets(root):
     combobox_mappingpackettype = ttk.Combobox(root, values=mapping_packet_types, width=47)
     combobox_mappingpackettype.grid(column=1, row=6, padx=10, pady=5)
     combobox_mappingpackettype.current(0)  # Set default selection to the first item
-    123456
-        # Validation for the Initials Entry
+
+    # Validation for the Initials Entry
     vcmd = (root.register(validate_initials), '%d', '%P')
     
     ttk.Label(root, text="Enter (3) Initials:").grid(column=0, row=7, padx=10, pady=5)
@@ -355,10 +355,6 @@ def set_focus(window_title):
         logging.warning(f"Window not found: {window_title}")
         return False
 
-
-
-
-
 #### PRESS & CLICK KEY LOGIC
 def press_key_with_modifier_multiple_times(modifier, key, times):
     for _ in range(times):
@@ -374,12 +370,70 @@ def press_key_multiple_times(key, times):
             break
         pyautogui.press(key)
 
+    """"
+    # pyautogui.typewrite()
+    pyautogui.typewrite(str(DBACRE))
+    pyautogui.typewrite(str(DBAIN))
+    pyautogui.typewrite(MemoTXT)
+    pyautogui.typewrite(PNUMBER)
+    pyautogui.typewrite('f')
+    pyautogui.typewrite(f"04/01/{ForYear}")
+    pyautogui.typewrite(f"{PDESC} FOR TIMBER REVIEW")
+    pyautogui.typewrite('p')
+
+    # pyautogui.hotkey()
+    pyautogui.hotkey('ctrl', 'o')
+    pyautogui.hotkey('ctrl', 'shift', 'm')
+
+    # pyautogui.press()
+    pyautogui.press(['tab'])
+    pyautogui.press(['delete'])
+    pyautogui.press('enter')
+    pyautogui.press('l')
+    pyautogui.press('space')
+    pyautogui.press('right')
+
+    # press_key_multiple_times
+    press_key_multiple_times('up', 12)
+    press_key_multiple_times('down', 4)
+    press_key_multiple_times(['tab'], 3)
+
+    # press_key_with_modifier_multiple_times
+    press_key_with_modifier_multiple_times('shift', 'tab', 6)
+
+    """
 
 
 
+#### Land Type Press Down Function
+def press_land_key(LANDTYPE):
+    # Define the mapping of LANDTYPE to the number of DOWN key presses
+    land_key_mapping = {
+        "RES_RURAL": 3,
+        "RES_URBAN": 4,
+        "CA_COMMON_AREAS_CONDOS": 22,
+        "C_CAREA": 21,
+        "COMMERCIAL": 1,
+        "WASTE": 13,
+        "REMAINING_ACRES": 16,
+        "DEFAULT": 21
+    }
 
+    logging.info(f"LANDTYPE value: {LANDTYPE}, type: {type(LANDTYPE)}")
 
+    # Determine the number of DOWN key presses
+    # presses = land_key_mapping.get(LANDTYPE, land_key_mapping["DEFAULT"])
+    presses = land_key_mapping[LANDTYPE]  # This will raise a KeyError if LANDTYPE is not found
 
+    # Press the DOWN key the specified number of times
+    pyautogui.press('down', presses)
+    
+    # Press ENTER to confirm the selection
+    pyautogui.press('enter')
+
+    # Example usage:
+    #LANDTYPE = "RURAL"
+    #press_land_key(LANDTYPE)
 
 #### Legend Press Down Key Function
 def press_legend_key(LEGENDTYPE):
@@ -432,35 +486,6 @@ def press_legend_key(LEGENDTYPE):
     # LEGENDTYPE = 1
     # press_legend_key(LEGENDTYPE)
 
-#### Land Type Press Down Function
-def press_land_key(LANDTYPE):
-    # Define the mapping of LANDTYPE to the number of DOWN key presses
-    land_key_mapping = {
-        "RES_RURAL": 3,
-        "RES_URBAN": 4,
-        "CA_COMMON_AREAS_CONDOS": 22,
-        "C_CAREA": 21,
-        "COMMERCIAL": 1,
-        "WASTE": 13,
-        "REMAINING_ACRES": 16,
-        "DEFAULT": 21
-    }
-
-    logging.info(f"LANDTYPE value: {LANDTYPE}, type: {type(LANDTYPE)}")
-
-    # Determine the number of DOWN key presses
-    # presses = land_key_mapping.get(LANDTYPE, land_key_mapping["DEFAULT"])
-    presses = land_key_mapping[LANDTYPE]  # This will raise a KeyError if LANDTYPE is not found
-
-    # Press the DOWN key the specified number of times
-    pyautogui.press('down', presses)
-    
-    # Press ENTER to confirm the selection
-    pyautogui.press('enter')
-
-    # Example usage:
-    #LANDTYPE = "RURAL"
-    #press_land_key(LANDTYPE)
 
 
 def determine_group_code(pcc_code):
@@ -723,7 +748,7 @@ def click_image_single(image_path, direction='center', offset=50, inset=7, confi
     # Click to right of permit_description, by calling offset=5 it was just barely below the image, which is what I wanted
     if click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
         logging.info("Clicked successfully permit_description.")
-    time.sleep(0.5)
+    time.sleep(1)
 
 
     """
@@ -846,6 +871,8 @@ else:
 
 
 
+
+
 """
 # Start the GUI event loop
 """
@@ -871,7 +898,7 @@ conn = connect_to_database(db_connection_string)
 cursor = conn.cursor()
 
 # The query should accommodate multiple AINs in a list
-query = f"SELECT TRIM(pm.AIN), pm.LegalAcres FROM TSBv_Parcelmaster AS pm WHERE pm.AIN IN ({','.join(AINLIST)}) ORDER BY pm.AIN"
+query = f"SELECT TRIM(pm.AIN), pm.LegalAcres FROM TSBv_Parcelmaster AS pm WHERE pm.AIN IN ({','.join(AINLIST)})"
 rows = execute_query(cursor, query)
 logging.info("SQL_Query")
 
@@ -910,7 +937,7 @@ for row in rows:
     stop_script
     # Process each AIN individually
     set_focus("ProVal")
-    time.sleep(0.5)
+    time.sleep(1)
     logging.info("set_focus(ProVal)")
     stop_script
 
@@ -926,12 +953,12 @@ for row in rows:
 
     # Process: Open an AIN in ProVal
     set_focus("ProVal")
-    time.sleep(0.5)
+    time.sleep(1)
     logging.info("set_focus(ProVal)")
     stop_script
 
     pyautogui.hotkey('ctrl', 'o')
-    time.sleep(2)
+    time.sleep(1)
     logging.info("hotkey")
     stop_script
 
@@ -952,21 +979,21 @@ for row in rows:
     stop_script
 
     ensure_capslock_off()
-    time.sleep(0.5)
+    time.sleep(1)
     stop_script
 
     pyautogui.typewrite(str(DBAIN))
     logging.info(f"Sent AIN {DBAIN}.")
-    time.sleep(0.5)
+    time.sleep(1)
     stop_script
 
     pyautogui.press('enter')
-    time.sleep(2)
+    time.sleep(1)
     logging.info("Close Pop-Up, Open the {DBAIN}}")
     stop_script
     
     set_focus("ProVal")
-    time.sleep(0.5)
+    time.sleep(1)
     logging.info("set_focus(ProVal)")
     stop_script
 
@@ -985,497 +1012,202 @@ for row in rows:
 
 
 
+
+
+
+
     """
     ## NOW BEGIN AUTOMATION STEPS FOR THIS TOOL
     """
 
-    set_focus("ProVal")
-    time.sleep(0.5)
-    logging.info("set_focus(ProVal)")
-
     # Process: Open Memos
     pyautogui.hotkey('ctrl', 'shift', 'm')
-    logging.info("Ctrl, Shift, M to open Select Memo window")
-    time.sleep(2)
-
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
+    time.sleep(1)
 
 
+
+
+    """
+    ## START EXAMPLE EXECUTIONS TO BE REPLACE BY YOUR ACTUAL SCRIPT
+    IF
+    IF ELSE
+    IF ELIF ELSE
+    IF ELIF ELIF ELIF ELIF ELSE
+    DEPENDS ON HOW MANY CONDITIONS YOU WANT
+    BELOW ARE ONLY EXAMPLES
+    """
+
+
+    # is_image_found
+    # How to use the is_image_found function below in script:
     # Check if the image is found and decide based on that
-    if is_image_found(memos_land_information_, confidence=0.75):
+    if is_image_found(image_path_name_here, confidence=0.75):
         logging.info("Image was found - executing related tasks.")
         # Perform tasks related to the image being found
-
-        # Click to the right of Farm Acres
-        if click_image_single(memos_land_information_, direction='right', offset=15, confidence=0.75):
-            logging.info("Clicked successfully memos_land_information_.")
-        time.sleep(0.5)
-
-        pyautogui.press('l')
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-
-        #set_focus("Update Memo")
-        #time.sleep(0.5)
-        #logging.info("set_focus(Update Memo)")
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-        logging.info("ensure_capslock_off")
-
-        pyautogui.typewrite(MemoTXT)
-        time.sleep(0.5)
-        logging.info("typewrite")
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-            
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-
-
-
-    else:
-        logging.info(f"Did not find '{memos_land_information_}' on the screen.")
-        time.sleep(0.5)
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-
-        #set_focus("Memo ID")
-        #time.sleep(0.5)
-        #logging.info("set_focus(Memo ID)")
-
-        pyautogui.press('l')
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.typewrite(MemoTXT)
-        time.sleep(0.5)
-        logging.info("typewrite")
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
-        logging.info("press")
-
-        pyautogui.press('enter')
-        time.sleep(0.5)
-        logging.info("press")
-
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-
-
-
-    # Process: Enter Land Farm Acres
-
-    set_focus("ProVal")
-    time.sleep(0.5)
-    logging.info("set_focus back to ProVal after closing Memo Windows")
-
-
-    # Click Land_Tab
-    if click_images_multiple(land_tab_images, direction='center', offset=100, confidence=0.75):
-        logging.info("Clicked successfully land_tab_images.")
-    else:
-       stop_script
-
-    time.sleep(0.5)
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-
-    # Click Land_Base_Tab
-    if click_images_multiple(land_base_tab_images, direction='center', confidence=0.75):
-        logging.info("Clicked successfully land_base_tab_images.")
-    else:
-       stop_script
-
-    time.sleep(0.5)
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-
-    # Check if the image is found and decide based on that
-    if is_image_found(farm_total_acres_image, confidence=0.75):
-        logging.info("Image was found - executing related tasks.")
-        # Perform tasks related to the image being found
-
-        # Click to the right of Farm Acres
-        if click_image_single(farm_total_acres_image, direction='right', offset=15, confidence=0.75):
-            logging.info("Clicked successfully farm_total_acres_image.")
-        time.sleep(0.5)
-
-        # Delete the contents and send DBACRE
-        pyautogui.press('delete')
-        time.sleep(0.5)
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-
-        pyautogui.typewrite(str(DBACRE))
-        time.sleep(0.5)
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
         
-        logging.info("farm_total_acres_image Image was not found - executing alternative tasks.")
+    else:
+        logging.info("Image was not found - executing alternative tasks.")
         # Perform alternative tasks
 
-    # Click to the right of Farm Acres
-    elif click_image_single(aggregate_land_type_add_button, direction='bottom_right_corner', inset=10, confidence=0.75):
-        logging.info("Clicked successfully aggregate_land_type_add_button.")
-        time.sleep(0.5)
 
-        ensure_capslock_off()
-        time.sleep(0.5)
 
-        # Send the DBACRE value after clicking the fallback button
-        pyautogui.typewrite('f')
-        time.sleep(0.5)
 
-        pyautogui.press('tab')
-        time.sleep(0.5)
+    # is_image_found + click_images_multiple
+    # How to use the is_image_found function below in script:
+    # Check if the image is found and decide based on that
+    if is_image_found(image_path_name_here, confidence=0.75):
+        logging.info("Image was found - executing related tasks.")
+        # Perform tasks related to the image being found
+        if click_images_multiple(multiple_image_path_name_here, direction='below', offset=100, confidence=0.75):
+            logging.info("Clicked successfully.")
 
-        ensure_capslock_off()
-        time.sleep(0.5)
-
-        pyautogui.typewrite(str(DBACRE))
-        time.sleep(0.5)
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
 
     else:
-       stop_script
-
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
+        logging.info("Image was not found - executing alternative tasks.")
+        # Perform alternative tasks
 
 
 
 
+    # is_image_found + click_image_single
+    # How to use the is_image_found function below in script:
+    # Check if the image is found and decide based on that
+    if is_image_found(image_path_name_here, confidence=0.75):
+        logging.info("Image was found - executing related tasks.")
+        # Perform tasks related to the image being found
+        if click_image_single(single_image_path_name_here, direction='bottom_right_corner', inset=10, confidence=0.75):
+            logging.info("Clicked successfully.")
 
-    # Process: Enter Permit 1/2
+    else:
+        logging.info("Image was not found - executing alternative tasks.")
+        # Perform alternative tasks
 
-    # Click Permits_Tab
-    if click_images_multiple(permits_tab_images, direction='center', inset=10, confidence=0.75):
-        logging.info("Clicked successfully permits_tab_images.")
-    time.sleep(0.5)
 
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
-    
-    # Click Permits_Add_Button
-    if click_images_multiple(permits_add_permit_button, direction='center', offset=100, confidence=0.75):
-        logging.info("Clicked successfully permits_add_permit_button.")
-        time.sleep(2)
 
-        ensure_capslock_off()
-        time.sleep(0.5)
 
-        # Send Permit Number
-        pyautogui.typewrite(PNUMBER)
-        time.sleep(0.5)
 
-        pyautogui.press(['tab'])
-        time.sleep(0.5)
-        
-        #Different down to Timber 2 vs Mandatory 11.
-        press_key_multiple_times('down', 11)
-        time.sleep(0.5)
+    # click_images_multiple
+    # How to use these click_images_multiple & click_image_single functions in script
+    # Click below all specified images
+    if click_images_multiple(multiple_image_path_name_here, direction='below', offset=100, confidence=0.75):
+        logging.info("Clicked successfully.")
 
-        press_key_multiple_times(['tab'], 3)
-        time.sleep(0.5)
+    # Click at the center of a single image
+    if click_image_single(single_image_path_name_here, direction='center', confidence=0.75):
+        logging.info("Clicked successfully.")
 
-        ensure_capslock_off()
-        time.sleep(0.5)
 
-        # Send Permit Filing Date
-        pyautogui.typewrite(PFILE)
-        time.sleep(0.5)
 
-        press_key_multiple_times(['tab'], 3)
-        time.sleep(0.5)
+    # Click at the bottom right corner of a single image
+    if click_image_single(single_image_path_name_here, direction='bottom_right_corner', inset=10, confidence=0.75):
+        logging.info("Clicked successfully.")
+        logging.info("IF_CONDITION.")
+        time.sleep(1)
 
-        # Close Add Permit Pop-Up Box
-        pyautogui.press('space')
-        logging.info("Closing Add Permit pop-up, then waiting to send description")
-        time.sleep(3)
-    time.sleep(0.5)
+    elif click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
+        logging.info("ELIF_CONDITION.")
+        time.sleep(1)
 
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
-  
-    # Click to right of permit_description
+    else:
+        logging.info("ELSE_CONDITION.")
+        time.sleep(1)
+
+    time.sleep(1)
+
+
+
+
+
+    # Click to right of permit_description, by calling offset=5 it was just barely below the image, which is what I wanted
     if click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
         logging.info("Clicked successfully permit_description.")
-    time.sleep(0.5)
+        logging.info("IF_CONDITION.")
+        time.sleep(1)
 
-    ensure_capslock_off()
-    time.sleep(0.5)
-    
-    # Send Permit Description
-    pyautogui.typewrite(f"{PDESC} FOR APPRAISER REVIEW")
-    time.sleep(0.5)
-    logging.info("Send description")
+    elif click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
+        logging.info("ELIF_CONDITION.")
+        time.sleep(1)
 
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
+    elif click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
+        logging.info("ELIF_CONDITION.")
+        time.sleep(1)
 
-
-    # Process: Enter Permit 2/2
-    # Click FieldVisit_Add_Button
-    if click_image_single(add_field_visit_image_path, direction='center', inset=10, confidence=0.75):
-        logging.info("Clicked successfully add_field_visit_image_path.")
-        time.sleep(2)
-
-        # If found, complete adding Field Visit process
-        press_key_with_modifier_multiple_times('shift', 'tab', 6)
-        time.sleep(0.5)
-
-        pyautogui.press('space')
-        time.sleep(0.5)
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-
-        pyautogui.typewrite('p')
-        time.sleep(0.5)
-
-        pyautogui.press('tab')
-        time.sleep(0.5)
-
-        pyautogui.press('space')
-        time.sleep(0.5)
-
-        pyautogui.press('right')
-        time.sleep(0.5)
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-
-        # Permit Due Date
-        pyautogui.typewrite(f"04/01/{ForYear}")
-        time.sleep(0.5)
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
-
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
-
-
-
-    # Process: CHECK FOR TIMBER
-    # Timber Review Logic
-    if TREVIEW in ["Yes", "YES", "Y", "y"]:
-        logging.info("Timber YES.")
-        """
-        # Send Appraiser Permit for TIMBER
-
-        """
-        # Same as permit process except for two changes. Different down to Timber vs Mandatory. Add to Permit Description.
-        # Process: Enter Permit 1/2
-
-        # Click Permits_Tab
-        if click_images_multiple(permits_tab_images, direction='center', inset=10, confidence=0.75):
-            logging.info("Clicked successfully permits_tab_images.")
-        time.sleep(0.5)
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
-        
-        # Click Permits_Add_Button
-        if click_images_multiple(permits_add_permit_button, direction='center', offset=100, confidence=0.75):
-            logging.info("Clicked successfully permits_add_permit_button.")
-            time.sleep(2)
-
-            ensure_capslock_off()
-            time.sleep(0.5)
-            
-            # Send Permit Number
-            pyautogui.typewrite(PNUMBER)
-            time.sleep(0.5)
-
-            pyautogui.press(['tab'])
-            time.sleep(0.5)
-            
-            #Different down to Timber 2 vs Mandatory 11.
-            press_key_multiple_times('down', 2)
-            time.sleep(0.5)
-
-            press_key_multiple_times(['tab'], 3)
-            time.sleep(0.5)
-
-            ensure_capslock_off()
-            time.sleep(0.5)
-            
-            # Send Permit Filing Date
-            pyautogui.typewrite(PFILE)
-            time.sleep(0.5)
-
-            press_key_multiple_times(['tab'], 3)
-            time.sleep(0.5)
-
-            # Close Add Permit Pop-Up Box
-            pyautogui.press('space')
-            logging.info("Closing Add Permit pop-up, then waiting to send description")
-            time.sleep(3)
-        time.sleep(0.5)
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
-        
-        # Click to right of permit_description
-        if click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
-            logging.info("Clicked successfully permit_description.")
-        time.sleep(0.5)
-
-        ensure_capslock_off()
-        time.sleep(0.5)
-
-        # Send Permit Description -- Add to Permit Description.
-        pyautogui.typewrite(f"{PDESC} FOR TIMBER REVIEW")
-        time.sleep(0.5)
-        logging.info("Send description")
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
-
-        # Process: Enter Permit 2/2
-        # Click FieldVisit_Add_Button
-        if click_image_single(add_field_visit_image_path, direction='center', inset=10, confidence=0.75):
-            logging.info("Clicked successfully add_field_visit_image_path.")
-            time.sleep(2)
-
-            # If found, complete adding Field Visit process
-            press_key_with_modifier_multiple_times('shift', 'tab', 6)
-            time.sleep(0.5)
-
-            pyautogui.press('space')
-            time.sleep(0.5)
-
-            pyautogui.press('tab')
-            time.sleep(0.5)
-
-            ensure_capslock_off()
-            time.sleep(0.5)
-
-            pyautogui.typewrite('p')
-            time.sleep(0.5)
-
-            pyautogui.press('tab')
-            time.sleep(0.5)
-
-            pyautogui.press('space')
-            time.sleep(0.5)
-
-            pyautogui.press('right')
-            time.sleep(0.5)
-
-            ensure_capslock_off()
-            time.sleep(0.5)
-        
-            # Permit Due Date
-            pyautogui.typewrite(f"04/01/{ForYear}")
-            time.sleep(0.5)
-
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
-
+    elif click_image_single(permit_description, direction='below', offset=5, confidence=0.75):
+        logging.info("ELIF_CONDITION.")
+        time.sleep(1)
 
     else:
-        logging.info("Timber review not required, skipping this step.")
-        time.sleep(0.5)
-        if stop_script:
-            logging.info("Script stopping due to kill key press.")
-            stop_script
-        
+        logging.info("ELSE_CONDITION.")
+        time.sleep(1)
 
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
-   
-   
-   
-   
+    time.sleep(1)
+
+
+
+
+
+    # pyautogui.typewrite()
+    pyautogui.typewrite(str(DBACRE))
+    pyautogui.typewrite(str(DBAIN))
+    pyautogui.typewrite(MemoTXT)
+    pyautogui.typewrite(PNUMBER)
+    pyautogui.typewrite('f')
+    pyautogui.typewrite(f"04/01/{ForYear}")
+    pyautogui.typewrite(f"{PDESC} FOR TIMBER REVIEW")
+    pyautogui.typewrite('p')
+
+    # pyautogui.hotkey()
+    pyautogui.hotkey('ctrl', 'o')
+    pyautogui.hotkey('ctrl', 'shift', 'm')
+
+    # pyautogui.press()
+    pyautogui.press(['tab'])
+    pyautogui.press(['delete'])
+    pyautogui.press('enter')
+    pyautogui.press('l')
+    pyautogui.press('space')
+    pyautogui.press('right')
+
+    # press_key_multiple_times
+    press_key_multiple_times('up', 12)
+    press_key_multiple_times('down', 4)
+    press_key_multiple_times(['tab'], 3)
+
+    # press_key_with_modifier_multiple_times
+    press_key_with_modifier_multiple_times('shift', 'tab', 6)
+
+    """
+    ## END EXAMPLE EXECUTIONS TO BE REPLACE BY YOUR ACTUAL SCRIPT
+    """
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
    
     # Save Account
     pyautogui.hotkey('ctrl', 's')
     logging.info("Save.")
-    time.sleep(2)
-
+    time.sleep(1)
     if stop_script:
         logging.info("Script stopping due to kill key press.")
-        stop_script
-        
+        break
 
 
     # END ALL PROCESSESS
     logging.info("THE END...")
-    time.sleep(0.5)
+    time.sleep(1)
 
-    if stop_script:
-        logging.info("Script stopping due to kill key press.")
-        stop_script
-        
 
-stop_script
 
 ain_count = count_ains(AINLIST)
 logging.info(f"Total number of AINs processed in this packet: {ain_count}")
@@ -1554,5 +1286,4 @@ SEG PACKET
     # Save Template Version
     # Write a Plat version
 #08/26/2024 -- Screen Text Reading is inconsistent even for basic reading. Moved to OCR for ALL if/elif/else decisions.
-    # UPDATED MAPPING PACKETS FINAL AND AUTOMATION TEMPLATE AND PLATS TEST
 """

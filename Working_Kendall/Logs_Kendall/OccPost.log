@@ -352,3 +352,695 @@
 2024-08-27 10:47:02,353 - INFO - Clicked center of the image at (855, 544)
 2024-08-27 10:47:02,353 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
 2024-08-27 10:47:14,721 - INFO - User clicked Yes
+2024-09-03 09:27:03,251 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 09:27:29,168 - INFO - CAPS LOCK is already off.
+2024-09-03 09:27:29,168 - INFO - Generated MemoTXT: POSTED - HOEX 02/04/2024
+2024-09-03 09:27:29,197 - INFO - Variables Created:
+2024-09-03 09:27:29,237 - INFO - AIN: ['305459']
+2024-09-03 09:27:29,238 - INFO - AIN: 305459
+2024-09-03 09:27:29,239 - INFO - PostingType: HOEX
+2024-09-03 09:27:29,245 - INFO - MemoTXT: POSTED - HOEX 02/04/2024
+2024-09-03 09:27:29,246 - INFO - PDATE: 02/04/2024
+2024-09-03 09:27:29,251 - INFO - Set focus to window: ProVal
+2024-09-03 09:27:30,259 - INFO - set_focus(ProVal)
+2024-09-03 09:27:30,362 - INFO - Set focus to window: ProVal
+2024-09-03 09:27:31,366 - INFO - set_focus(ProVal)
+2024-09-03 09:27:32,475 - INFO - hotkey
+2024-09-03 09:27:33,693 - INFO - press_key_multiple_times
+2024-09-03 09:27:34,105 - INFO - press_key_multiple_times
+2024-09-03 09:27:34,211 - INFO - press
+2024-09-03 09:27:34,313 - INFO - press
+2024-09-03 09:27:34,316 - INFO - CAPS LOCK is already off.
+2024-09-03 09:27:35,434 - INFO - Sent AIN 305459.
+2024-09-03 09:27:37,540 - INFO - Close Pop-Up, Open the 305459
+2024-09-03 09:27:37,540 - INFO - Set focus to window: ProVal
+2024-09-03 09:27:38,544 - INFO - set_focus(ProVal)
+2024-09-03 09:27:39,755 - INFO - Allocations opened.
+2024-09-03 09:27:51,837 - INFO - User clicked Yes
+2024-09-03 09:27:52,849 - INFO - Set focus to window: Cost Allocations
+2024-09-03 09:27:57,069 - INFO - Key Information opened.
+2024-09-03 09:28:06,306 - INFO - User clicked Yes
+2024-09-03 09:28:06,306 - INFO - Set focus to window: Key Information
+2024-09-03 09:28:08,623 - INFO - Opened pricing window.
+2024-09-03 09:28:08,623 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 09:28:08,968 - INFO - Clicked center of the image at (421, 381)
+2024-09-03 09:28:08,971 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 09:28:12,293 - INFO - Pricing...
+2024-09-03 09:28:16,297 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png
+2024-09-03 09:28:16,568 - INFO - Clicked center of the image at (653, 189)
+2024-09-03 09:28:16,568 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png.
+2024-09-03 09:29:40,726 - INFO - User clicked Yes
+2024-09-03 09:29:41,728 - INFO - Set focus to window: ProVal
+2024-09-03 09:29:43,837 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 09:29:44,134 - INFO - Clicked center of the image at (855, 544)
+2024-09-03 09:29:44,134 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 09:29:58,957 - INFO - User clicked Yes
+2024-09-03 09:29:59,072 - INFO - Save.
+2024-09-03 09:30:00,174 - INFO - Posting...
+2024-09-03 09:30:04,905 - INFO - Posting now.
+2024-09-03 09:30:06,011 - INFO - THE END...
+2024-09-03 09:30:07,015 - INFO - ALL_STOP_NEXT
+2024-09-03 09:36:52,667 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 09:37:10,834 - INFO - CAPS LOCK is already off.
+2024-09-03 09:37:10,834 - INFO - Generated MemoTXT: POSTED - HOEX 02/16/2024
+2024-09-03 09:37:10,858 - INFO - Variables Created:
+2024-09-03 09:37:10,859 - INFO - AIN: ['174237']
+2024-09-03 09:37:10,860 - INFO - AIN: 174237
+2024-09-03 09:37:10,861 - INFO - PostingType: HOEX
+2024-09-03 09:37:10,865 - INFO - MemoTXT: POSTED - HOEX 02/16/2024
+2024-09-03 09:37:10,866 - INFO - PDATE: 02/16/2024
+2024-09-03 09:37:10,870 - INFO - Set focus to window: ProVal
+2024-09-03 09:37:11,873 - INFO - set_focus(ProVal)
+2024-09-03 09:37:11,983 - INFO - Set focus to window: ProVal
+2024-09-03 09:37:12,987 - INFO - set_focus(ProVal)
+2024-09-03 09:37:14,095 - INFO - hotkey
+2024-09-03 09:37:15,321 - INFO - press_key_multiple_times
+2024-09-03 09:37:15,731 - INFO - press_key_multiple_times
+2024-09-03 09:37:15,837 - INFO - press
+2024-09-03 09:37:15,939 - INFO - press
+2024-09-03 09:37:15,942 - INFO - CAPS LOCK is already off.
+2024-09-03 09:37:17,063 - INFO - Sent AIN 174237.
+2024-09-03 09:37:19,169 - INFO - Close Pop-Up, Open the 174237
+2024-09-03 09:37:19,169 - INFO - Set focus to window: ProVal
+2024-09-03 09:37:20,180 - INFO - set_focus(ProVal)
+2024-09-03 09:37:21,390 - INFO - Allocations opened.
+2024-09-03 09:37:32,739 - INFO - User pressed no. Script stopped.
+2024-09-03 09:37:33,849 - INFO - Key Information opened.
+2024-09-03 09:37:33,995 - INFO - Kill key pressed. Stopping the script...
+2024-09-03 09:37:36,219 - INFO - User pressed no. Script stopped.
+2024-09-03 09:37:37,323 - INFO - Opened pricing window.
+2024-09-03 09:37:37,323 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 09:37:37,479 - WARNING - No good match found at the confidence level of 0.75.
+2024-09-03 09:37:37,479 - WARNING - Failed to click center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 09:37:37,479 - INFO - Unable to locate. Script stopped.
+2024-09-03 09:37:37,479 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png
+2024-09-03 09:37:37,628 - WARNING - No good match found at the confidence level of 0.75.
+2024-09-03 09:37:37,631 - WARNING - Failed to click center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png.
+2024-09-03 09:37:37,632 - INFO - Unable to locate. Script stopped.
+2024-09-03 09:37:39,468 - INFO - User pressed no. Script stopped.
+2024-09-03 09:37:40,583 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 09:37:40,898 - INFO - Clicked center of the image at (1667, 537)
+2024-09-03 09:37:40,898 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 09:40:12,684 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 09:40:26,841 - INFO - CAPS LOCK is already off.
+2024-09-03 09:40:26,841 - INFO - Generated MemoTXT: POSTED - HOEX 02/16/2024
+2024-09-03 09:40:26,867 - INFO - Variables Created:
+2024-09-03 09:40:26,917 - INFO - AIN: ['174237']
+2024-09-03 09:40:26,921 - INFO - AIN: 174237
+2024-09-03 09:40:26,934 - INFO - PostingType: HOEX
+2024-09-03 09:40:26,935 - INFO - MemoTXT: POSTED - HOEX 02/16/2024
+2024-09-03 09:40:26,936 - INFO - PDATE: 02/16/2024
+2024-09-03 09:40:26,940 - INFO - Set focus to window: ProVal
+2024-09-03 09:40:27,971 - INFO - set_focus(ProVal)
+2024-09-03 09:40:28,078 - INFO - Set focus to window: ProVal
+2024-09-03 09:40:29,082 - INFO - set_focus(ProVal)
+2024-09-03 09:40:30,191 - INFO - hotkey
+2024-09-03 09:40:31,419 - INFO - press_key_multiple_times
+2024-09-03 09:40:31,831 - INFO - press_key_multiple_times
+2024-09-03 09:40:31,937 - INFO - press
+2024-09-03 09:40:32,039 - INFO - press
+2024-09-03 09:40:32,043 - INFO - CAPS LOCK is already off.
+2024-09-03 09:40:33,160 - INFO - Sent AIN 174237.
+2024-09-03 09:40:35,266 - INFO - Close Pop-Up, Open the 174237
+2024-09-03 09:40:35,266 - INFO - Set focus to window: ProVal
+2024-09-03 09:40:36,274 - INFO - set_focus(ProVal)
+2024-09-03 09:40:37,485 - INFO - Allocations opened.
+2024-09-03 09:40:58,045 - INFO - User clicked Yes
+2024-09-03 09:40:59,052 - WARNING - Window not found: Cost Allocations
+2024-09-03 09:41:03,261 - INFO - Key Information opened.
+2024-09-03 09:41:07,362 - INFO - User clicked Yes
+2024-09-03 09:41:07,362 - INFO - Set focus to window: Key Information
+2024-09-03 09:41:09,677 - INFO - Opened pricing window.
+2024-09-03 09:41:09,677 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 09:41:09,962 - INFO - Clicked center of the image at (343, 303)
+2024-09-03 09:41:09,962 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 09:41:13,283 - INFO - Pricing...
+2024-09-03 09:41:17,288 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png
+2024-09-03 09:41:17,562 - INFO - Clicked center of the image at (653, 189)
+2024-09-03 09:41:17,562 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png.
+2024-09-03 09:41:25,669 - INFO - User clicked Yes
+2024-09-03 09:41:26,681 - INFO - Set focus to window: ProVal
+2024-09-03 09:41:28,804 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 09:41:29,095 - INFO - Clicked center of the image at (855, 557)
+2024-09-03 09:41:29,095 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 09:41:37,565 - INFO - User clicked Yes
+2024-09-03 09:41:38,672 - INFO - Save.
+2024-09-03 09:41:39,776 - INFO - Posting...
+2024-09-03 09:41:44,508 - INFO - Posting now.
+2024-09-03 09:41:45,613 - INFO - THE END...
+2024-09-03 09:41:46,617 - INFO - AIN logged
+2024-09-03 09:44:57,127 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 09:45:09,297 - INFO - CAPS LOCK is already off.
+2024-09-03 09:45:09,297 - INFO - Generated MemoTXT: POSTED - HOEX 03/02/2024
+2024-09-03 09:45:09,321 - INFO - Variables Created:
+2024-09-03 09:45:09,324 - INFO - AIN: ['350276']
+2024-09-03 09:45:09,326 - INFO - AIN: 350276
+2024-09-03 09:45:09,351 - INFO - PostingType: HOEX
+2024-09-03 09:45:09,355 - INFO - MemoTXT: POSTED - HOEX 03/02/2024
+2024-09-03 09:45:09,377 - INFO - PDATE: 03/02/2024
+2024-09-03 09:45:09,434 - INFO - Set focus to window: ProVal
+2024-09-03 09:45:10,538 - INFO - set_focus(ProVal)
+2024-09-03 09:45:10,646 - INFO - Set focus to window: ProVal
+2024-09-03 09:45:11,652 - INFO - set_focus(ProVal)
+2024-09-03 09:45:12,760 - INFO - hotkey
+2024-09-03 09:45:13,986 - INFO - press_key_multiple_times
+2024-09-03 09:45:14,396 - INFO - press_key_multiple_times
+2024-09-03 09:45:14,498 - INFO - press
+2024-09-03 09:45:14,602 - INFO - press
+2024-09-03 09:45:14,603 - INFO - CAPS LOCK is already off.
+2024-09-03 09:45:15,719 - INFO - Sent AIN 350276.
+2024-09-03 09:45:17,824 - INFO - Close Pop-Up, Open the 350276
+2024-09-03 09:45:17,824 - INFO - Set focus to window: ProVal
+2024-09-03 09:45:18,834 - INFO - set_focus(ProVal)
+2024-09-03 09:45:20,045 - INFO - Allocations opened.
+2024-09-03 09:45:33,950 - INFO - User clicked Yes
+2024-09-03 09:45:34,966 - INFO - Set focus to window: Cost Allocations
+2024-09-03 09:45:39,190 - INFO - Key Information opened.
+2024-09-03 09:45:46,991 - INFO - User clicked Yes
+2024-09-03 09:45:46,991 - INFO - Set focus to window: Key Information
+2024-09-03 09:45:49,306 - INFO - Opened pricing window.
+2024-09-03 09:45:49,306 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 09:45:49,576 - INFO - Clicked center of the image at (551, 511)
+2024-09-03 09:45:49,584 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 09:45:52,897 - INFO - Pricing...
+2024-09-03 09:45:56,900 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png
+2024-09-03 09:45:57,160 - INFO - Clicked center of the image at (653, 189)
+2024-09-03 09:45:57,160 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png.
+2024-09-03 09:46:15,730 - INFO - User clicked Yes
+2024-09-03 09:46:16,767 - INFO - Set focus to window: ProVal
+2024-09-03 09:46:18,896 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 09:46:19,193 - INFO - Clicked center of the image at (855, 544)
+2024-09-03 09:46:19,193 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 09:46:25,986 - INFO - User clicked Yes
+2024-09-03 09:46:26,999 - INFO - Set focus to window: ProVal
+2024-09-03 09:46:28,108 - INFO - Save.
+2024-09-03 09:46:29,214 - INFO - Posting...
+2024-09-03 09:46:33,940 - INFO - Posting now.
+2024-09-03 09:46:35,044 - INFO - THE END...
+2024-09-03 09:46:36,046 - INFO - AIN logged
+2024-09-03 09:47:05,945 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 09:47:16,045 - INFO - CAPS LOCK is already off.
+2024-09-03 09:47:16,045 - INFO - Generated MemoTXT: POSTED - HOEX 03/08/2024
+2024-09-03 09:47:16,070 - INFO - Variables Created:
+2024-09-03 09:47:16,071 - INFO - AIN: ['348399']
+2024-09-03 09:47:16,073 - INFO - AIN: 348399
+2024-09-03 09:47:16,073 - INFO - PostingType: HOEX
+2024-09-03 09:47:16,075 - INFO - MemoTXT: POSTED - HOEX 03/08/2024
+2024-09-03 09:47:16,080 - INFO - PDATE: 03/08/2024
+2024-09-03 09:47:16,086 - INFO - Set focus to window: ProVal
+2024-09-03 09:47:17,091 - INFO - set_focus(ProVal)
+2024-09-03 09:47:17,195 - INFO - Set focus to window: ProVal
+2024-09-03 09:47:18,197 - INFO - set_focus(ProVal)
+2024-09-03 09:47:19,306 - INFO - hotkey
+2024-09-03 09:47:20,532 - INFO - press_key_multiple_times
+2024-09-03 09:47:20,940 - INFO - press_key_multiple_times
+2024-09-03 09:47:21,046 - INFO - press
+2024-09-03 09:47:21,150 - INFO - press
+2024-09-03 09:47:21,150 - INFO - CAPS LOCK is already off.
+2024-09-03 09:47:22,257 - INFO - Sent AIN 348399.
+2024-09-03 09:47:24,364 - INFO - Close Pop-Up, Open the 348399
+2024-09-03 09:47:24,364 - INFO - Set focus to window: ProVal
+2024-09-03 09:47:25,371 - INFO - set_focus(ProVal)
+2024-09-03 09:47:26,582 - INFO - Allocations opened.
+2024-09-03 09:47:32,913 - INFO - User clicked Yes
+2024-09-03 09:47:33,921 - INFO - Set focus to window: Cost Allocations
+2024-09-03 09:47:38,144 - INFO - Key Information opened.
+2024-09-03 09:47:44,863 - INFO - User clicked Yes
+2024-09-03 09:47:44,868 - INFO - Set focus to window: Key Information
+2024-09-03 09:47:47,177 - INFO - Opened pricing window.
+2024-09-03 09:47:47,177 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 09:47:47,443 - INFO - Clicked center of the image at (499, 459)
+2024-09-03 09:47:47,443 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 09:47:50,752 - INFO - Pricing...
+2024-09-03 09:47:54,755 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png
+2024-09-03 09:47:55,025 - INFO - Clicked center of the image at (653, 189)
+2024-09-03 09:47:55,025 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png.
+2024-09-03 09:48:01,853 - INFO - User clicked Yes
+2024-09-03 09:48:02,861 - INFO - Set focus to window: ProVal
+2024-09-03 09:48:04,984 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 09:48:05,276 - INFO - Clicked center of the image at (855, 544)
+2024-09-03 09:48:05,286 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 09:48:22,956 - INFO - User clicked Yes
+2024-09-03 09:48:23,973 - INFO - Set focus to window: ProVal
+2024-09-03 09:48:25,092 - INFO - Save.
+2024-09-03 09:48:26,200 - INFO - Posting...
+2024-09-03 09:48:30,961 - INFO - Posting now.
+2024-09-03 09:48:32,064 - INFO - THE END...
+2024-09-03 09:48:33,068 - INFO - AIN logged
+2024-09-03 10:13:35,584 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 10:13:47,766 - INFO - CAPS LOCK is already off.
+2024-09-03 10:13:47,782 - INFO - Generated MemoTXT: POSTED - HOEX 03/04/2024
+2024-09-03 10:13:47,804 - INFO - Variables Created:
+2024-09-03 10:13:47,806 - INFO - AIN: ['348789']
+2024-09-03 10:13:47,808 - INFO - AIN: 348789
+2024-09-03 10:13:47,809 - INFO - PostingType: HOEX
+2024-09-03 10:13:47,810 - INFO - MemoTXT: POSTED - HOEX 03/04/2024
+2024-09-03 10:13:47,817 - INFO - PDATE: 03/04/2024
+2024-09-03 10:13:47,822 - INFO - Set focus to window: ProVal
+2024-09-03 10:13:48,826 - INFO - set_focus(ProVal)
+2024-09-03 10:13:48,931 - INFO - Set focus to window: ProVal
+2024-09-03 10:13:49,933 - INFO - set_focus(ProVal)
+2024-09-03 10:13:51,041 - INFO - hotkey
+2024-09-03 10:13:52,267 - INFO - press_key_multiple_times
+2024-09-03 10:13:52,677 - INFO - press_key_multiple_times
+2024-09-03 10:13:52,784 - INFO - press
+2024-09-03 10:13:52,889 - INFO - press
+2024-09-03 10:13:52,891 - INFO - CAPS LOCK is already off.
+2024-09-03 10:13:54,008 - INFO - Sent AIN 348789.
+2024-09-03 10:13:56,114 - INFO - Close Pop-Up, Open the 348789
+2024-09-03 10:13:56,115 - INFO - Set focus to window: ProVal
+2024-09-03 10:13:57,124 - INFO - set_focus(ProVal)
+2024-09-03 10:13:58,327 - INFO - Allocations opened.
+2024-09-03 10:14:31,646 - INFO - User clicked Yes
+2024-09-03 10:14:32,663 - INFO - Set focus to window: Cost Allocations
+2024-09-03 10:14:36,886 - INFO - Key Information opened.
+2024-09-03 10:14:42,868 - INFO - User clicked Yes
+2024-09-03 10:14:42,873 - INFO - Set focus to window: Key Information
+2024-09-03 10:14:45,180 - INFO - Opened pricing window.
+2024-09-03 10:14:45,180 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 10:14:45,548 - INFO - Clicked center of the image at (499, 459)
+2024-09-03 10:14:45,549 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 10:14:48,869 - INFO - Pricing...
+2024-09-03 10:14:52,873 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-03 10:14:53,147 - INFO - Clicked center of the image at (603, 189)
+2024-09-03 10:14:53,147 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-03 10:15:00,854 - INFO - User clicked Yes
+2024-09-03 10:15:01,864 - INFO - Set focus to window: ProVal
+2024-09-03 10:15:03,985 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 10:15:04,281 - INFO - Clicked center of the image at (855, 544)
+2024-09-03 10:15:04,281 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 10:15:12,424 - INFO - User clicked Yes
+2024-09-03 10:15:13,432 - INFO - Set focus to window: ProVal
+2024-09-03 10:15:14,550 - INFO - Save.
+2024-09-03 10:15:15,658 - INFO - Posting...
+2024-09-03 10:15:20,379 - INFO - Posting now.
+2024-09-03 10:15:21,483 - INFO - THE END...
+2024-09-03 10:15:22,485 - INFO - AIN logged
+2024-09-03 10:15:48,962 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-03 10:16:06,647 - INFO - CAPS LOCK is already off.
+2024-09-03 10:16:06,647 - INFO - Generated MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-03 10:16:06,678 - INFO - Variables Created:
+2024-09-03 10:16:06,682 - INFO - AIN: ['347453']
+2024-09-03 10:16:06,683 - INFO - AIN: 347453
+2024-09-03 10:16:06,685 - INFO - PostingType: HOEX
+2024-09-03 10:16:06,688 - INFO - MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-03 10:16:06,690 - INFO - PDATE: 03/01/2024
+2024-09-03 10:16:06,699 - INFO - Set focus to window: ProVal
+2024-09-03 10:16:07,702 - INFO - set_focus(ProVal)
+2024-09-03 10:16:07,809 - INFO - Set focus to window: ProVal
+2024-09-03 10:16:08,812 - INFO - set_focus(ProVal)
+2024-09-03 10:16:09,922 - INFO - hotkey
+2024-09-03 10:16:11,143 - INFO - press_key_multiple_times
+2024-09-03 10:16:11,554 - INFO - press_key_multiple_times
+2024-09-03 10:16:11,660 - INFO - press
+2024-09-03 10:16:11,763 - INFO - press
+2024-09-03 10:16:11,764 - INFO - CAPS LOCK is already off.
+2024-09-03 10:16:12,876 - INFO - Sent AIN 347453.
+2024-09-03 10:16:14,981 - INFO - Close Pop-Up, Open the 347453
+2024-09-03 10:16:14,981 - INFO - Set focus to window: ProVal
+2024-09-03 10:16:15,991 - INFO - set_focus(ProVal)
+2024-09-03 10:16:17,201 - INFO - Allocations opened.
+2024-09-03 10:16:41,348 - INFO - User clicked Yes
+2024-09-03 10:16:42,361 - INFO - Set focus to window: Cost Allocations
+2024-09-03 10:16:46,584 - INFO - Key Information opened.
+2024-09-03 10:16:48,800 - INFO - User clicked Yes
+2024-09-03 10:16:48,813 - INFO - Set focus to window: Key Information
+2024-09-03 10:16:51,122 - INFO - Opened pricing window.
+2024-09-03 10:16:51,122 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-03 10:16:51,430 - INFO - Clicked center of the image at (473, 433)
+2024-09-03 10:16:51,430 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-03 10:16:54,748 - INFO - Pricing...
+2024-09-03 10:16:58,752 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-03 10:16:59,014 - INFO - Clicked center of the image at (603, 189)
+2024-09-03 10:16:59,014 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-03 10:17:04,217 - INFO - User clicked Yes
+2024-09-03 10:17:05,223 - INFO - Set focus to window: ProVal
+2024-09-03 10:17:07,344 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-03 10:17:07,647 - INFO - Clicked center of the image at (855, 544)
+2024-09-03 10:17:07,647 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-03 10:17:15,023 - INFO - User clicked Yes
+2024-09-03 10:17:16,026 - INFO - Set focus to window: ProVal
+2024-09-03 10:17:17,132 - INFO - Save.
+2024-09-03 10:17:18,239 - INFO - Posting...
+2024-09-03 10:17:22,974 - INFO - Posting now.
+2024-09-03 10:17:24,077 - INFO - THE END...
+2024-09-03 10:17:25,098 - INFO - AIN logged
+2024-09-05 14:51:59,036 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 14:52:12,659 - INFO - CAPS LOCK is already off.
+2024-09-05 14:52:12,659 - INFO - Generated MemoTXT: POSTED - HOEX 03/18/2024
+2024-09-05 14:52:12,681 - INFO - Variables Created:
+2024-09-05 14:52:12,689 - INFO - AIN: ['345833']
+2024-09-05 14:52:12,708 - INFO - AIN: 345833
+2024-09-05 14:52:12,727 - INFO - PostingType: HOEX
+2024-09-05 14:52:12,732 - INFO - MemoTXT: POSTED - HOEX 03/18/2024
+2024-09-05 14:52:12,736 - INFO - PDATE: 03/18/2024
+2024-09-05 14:52:12,743 - INFO - Set focus to window: ProVal
+2024-09-05 14:52:13,794 - INFO - set_focus(ProVal)
+2024-09-05 14:52:13,901 - INFO - Set focus to window: ProVal
+2024-09-05 14:52:14,906 - INFO - set_focus(ProVal)
+2024-09-05 14:52:16,014 - INFO - hotkey
+2024-09-05 14:52:17,238 - INFO - press_key_multiple_times
+2024-09-05 14:52:17,645 - INFO - press_key_multiple_times
+2024-09-05 14:52:17,751 - INFO - press
+2024-09-05 14:52:17,853 - INFO - press
+2024-09-05 14:52:17,853 - INFO - CAPS LOCK is already off.
+2024-09-05 14:52:18,970 - INFO - Sent AIN 345833.
+2024-09-05 14:52:21,076 - INFO - Close Pop-Up, Open the 345833
+2024-09-05 14:52:21,076 - INFO - Set focus to window: ProVal
+2024-09-05 14:52:22,079 - INFO - set_focus(ProVal)
+2024-09-05 14:52:23,282 - INFO - Allocations opened.
+2024-09-05 14:52:57,350 - INFO - User clicked Yes
+2024-09-05 14:52:58,363 - INFO - Set focus to window: Cost Allocations
+2024-09-05 14:53:02,580 - INFO - Key Information opened.
+2024-09-05 14:53:44,570 - INFO - User clicked Yes
+2024-09-05 14:53:44,581 - INFO - Set focus to window: Key Information
+2024-09-05 14:53:46,892 - INFO - Opened pricing window.
+2024-09-05 14:53:46,892 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 14:53:47,232 - INFO - Clicked center of the image at (499, 459)
+2024-09-05 14:53:47,264 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 14:53:50,576 - INFO - Pricing...
+2024-09-05 14:53:54,577 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 14:53:54,848 - INFO - Clicked center of the image at (611, 209)
+2024-09-05 14:53:54,848 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 14:54:02,548 - INFO - User clicked Yes
+2024-09-05 14:54:03,559 - INFO - Set focus to window: ProVal
+2024-09-05 14:54:05,678 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 14:54:05,948 - INFO - Clicked center of the image at (855, 544)
+2024-09-05 14:54:05,948 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 14:54:30,737 - INFO - User clicked Yes
+2024-09-05 14:54:31,742 - INFO - Set focus to window: ProVal
+2024-09-05 14:54:32,859 - INFO - Save.
+2024-09-05 14:54:33,965 - INFO - Posting...
+2024-09-05 14:54:38,687 - INFO - Posting now.
+2024-09-05 14:54:39,790 - INFO - THE END...
+2024-09-05 14:54:40,792 - INFO - AIN logged
+2024-09-05 14:56:01,993 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 14:56:18,630 - INFO - CAPS LOCK is already off.
+2024-09-05 14:56:18,630 - INFO - Generated MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 14:56:18,645 - INFO - Variables Created:
+2024-09-05 14:56:18,654 - INFO - AIN: ['250573']
+2024-09-05 14:56:18,655 - INFO - AIN: 250573
+2024-09-05 14:56:18,656 - INFO - PostingType: HOEX
+2024-09-05 14:56:18,658 - INFO - MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 14:56:18,660 - INFO - PDATE: 03/01/2024
+2024-09-05 14:56:18,665 - INFO - Set focus to window: ProVal
+2024-09-05 14:56:19,670 - INFO - set_focus(ProVal)
+2024-09-05 14:56:19,780 - INFO - Set focus to window: ProVal
+2024-09-05 14:56:20,784 - INFO - set_focus(ProVal)
+2024-09-05 14:56:21,893 - INFO - hotkey
+2024-09-05 14:56:23,119 - INFO - press_key_multiple_times
+2024-09-05 14:56:23,530 - INFO - press_key_multiple_times
+2024-09-05 14:56:23,636 - INFO - press
+2024-09-05 14:56:23,737 - INFO - press
+2024-09-05 14:56:23,737 - INFO - CAPS LOCK is already off.
+2024-09-05 14:56:24,853 - INFO - Sent AIN 250573.
+2024-09-05 14:56:26,959 - INFO - Close Pop-Up, Open the 250573
+2024-09-05 14:56:26,959 - INFO - Set focus to window: ProVal
+2024-09-05 14:56:27,968 - INFO - set_focus(ProVal)
+2024-09-05 14:56:29,177 - INFO - Allocations opened.
+2024-09-05 14:56:32,375 - INFO - User clicked Yes
+2024-09-05 14:56:33,383 - INFO - Set focus to window: Cost Allocations
+2024-09-05 14:56:37,594 - INFO - Key Information opened.
+2024-09-05 14:56:43,060 - INFO - User clicked Yes
+2024-09-05 14:56:43,060 - INFO - Set focus to window: Key Information
+2024-09-05 14:56:45,379 - INFO - Opened pricing window.
+2024-09-05 14:56:45,379 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 14:56:45,647 - INFO - Clicked center of the image at (473, 433)
+2024-09-05 14:56:45,647 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 14:56:48,962 - INFO - Pricing...
+2024-09-05 14:56:52,965 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 14:56:53,229 - INFO - Clicked center of the image at (603, 189)
+2024-09-05 14:56:53,229 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 14:57:00,821 - INFO - User clicked Yes
+2024-09-05 14:57:01,826 - INFO - Set focus to window: ProVal
+2024-09-05 14:57:03,945 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 14:57:04,229 - INFO - Clicked center of the image at (855, 544)
+2024-09-05 14:57:04,229 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 14:57:13,055 - INFO - User clicked Yes
+2024-09-05 14:57:14,058 - INFO - Set focus to window: ProVal
+2024-09-05 14:57:15,174 - INFO - Save.
+2024-09-05 14:57:16,281 - INFO - Posting...
+2024-09-05 14:57:21,019 - INFO - Posting now.
+2024-09-05 14:57:22,122 - INFO - THE END...
+2024-09-05 14:57:23,124 - INFO - AIN logged
+2024-09-05 14:58:01,256 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 14:58:17,417 - INFO - CAPS LOCK is already off.
+2024-09-05 14:58:17,417 - INFO - Generated MemoTXT: POSTED - HOEX 03/22/2024
+2024-09-05 14:58:17,447 - INFO - Variables Created:
+2024-09-05 14:58:17,449 - INFO - AIN: ['348893']
+2024-09-05 14:58:17,450 - INFO - AIN: 348893
+2024-09-05 14:58:17,452 - INFO - PostingType: HOEX
+2024-09-05 14:58:17,454 - INFO - MemoTXT: POSTED - HOEX 03/22/2024
+2024-09-05 14:58:17,455 - INFO - PDATE: 03/22/2024
+2024-09-05 14:58:17,460 - INFO - Set focus to window: ProVal
+2024-09-05 14:58:18,464 - INFO - set_focus(ProVal)
+2024-09-05 14:58:18,571 - INFO - Set focus to window: ProVal
+2024-09-05 14:58:19,577 - INFO - set_focus(ProVal)
+2024-09-05 14:58:20,684 - INFO - hotkey
+2024-09-05 14:58:21,911 - INFO - press_key_multiple_times
+2024-09-05 14:58:22,321 - INFO - press_key_multiple_times
+2024-09-05 14:58:22,427 - INFO - press
+2024-09-05 14:58:22,529 - INFO - press
+2024-09-05 14:58:22,529 - INFO - CAPS LOCK is already off.
+2024-09-05 14:58:23,639 - INFO - Sent AIN 348893.
+2024-09-05 14:58:25,744 - INFO - Close Pop-Up, Open the 348893
+2024-09-05 14:58:25,744 - INFO - Set focus to window: ProVal
+2024-09-05 14:58:26,748 - INFO - set_focus(ProVal)
+2024-09-05 14:58:27,956 - INFO - Allocations opened.
+2024-09-05 14:59:28,294 - INFO - User clicked Yes
+2024-09-05 14:59:29,302 - INFO - Set focus to window: Cost Allocations
+2024-09-05 14:59:33,520 - INFO - Key Information opened.
+2024-09-05 14:59:34,460 - INFO - User clicked Yes
+2024-09-05 14:59:34,460 - INFO - Set focus to window: Key Information
+2024-09-05 14:59:36,780 - INFO - Opened pricing window.
+2024-09-05 14:59:36,780 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 14:59:37,060 - INFO - Clicked center of the image at (421, 381)
+2024-09-05 14:59:37,061 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 14:59:40,375 - INFO - Pricing...
+2024-09-05 14:59:44,379 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 14:59:44,610 - INFO - Clicked center of the image at (603, 189)
+2024-09-05 14:59:44,613 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 15:00:03,335 - INFO - User clicked Yes
+2024-09-05 15:00:04,337 - INFO - Set focus to window: ProVal
+2024-09-05 15:00:06,456 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 15:00:06,760 - INFO - Clicked center of the image at (855, 544)
+2024-09-05 15:00:06,760 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 15:00:15,808 - INFO - User clicked Yes
+2024-09-05 15:00:16,819 - INFO - Set focus to window: ProVal
+2024-09-05 15:00:17,936 - INFO - Save.
+2024-09-05 15:00:19,043 - INFO - Posting...
+2024-09-05 15:00:23,781 - INFO - Posting now.
+2024-09-05 15:00:24,885 - INFO - THE END...
+2024-09-05 15:00:25,892 - INFO - AIN logged
+2024-09-05 15:02:05,242 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 15:02:14,168 - INFO - CAPS LOCK is already off.
+2024-09-05 15:02:14,168 - INFO - Generated MemoTXT: POSTED - HOEX 03/29/2024
+2024-09-05 15:02:14,196 - INFO - Variables Created:
+2024-09-05 15:02:14,198 - INFO - AIN: ['349600']
+2024-09-05 15:02:14,200 - INFO - AIN: 349600
+2024-09-05 15:02:14,201 - INFO - PostingType: HOEX
+2024-09-05 15:02:14,203 - INFO - MemoTXT: POSTED - HOEX 03/29/2024
+2024-09-05 15:02:14,210 - INFO - PDATE: 03/29/2024
+2024-09-05 15:02:14,217 - INFO - Set focus to window: ProVal
+2024-09-05 15:02:15,231 - INFO - set_focus(ProVal)
+2024-09-05 15:02:15,334 - INFO - Set focus to window: ProVal
+2024-09-05 15:02:16,340 - INFO - set_focus(ProVal)
+2024-09-05 15:02:17,448 - INFO - hotkey
+2024-09-05 15:02:18,671 - INFO - press_key_multiple_times
+2024-09-05 15:02:19,081 - INFO - press_key_multiple_times
+2024-09-05 15:02:19,186 - INFO - press
+2024-09-05 15:02:19,290 - INFO - press
+2024-09-05 15:02:19,292 - INFO - CAPS LOCK is already off.
+2024-09-05 15:02:20,409 - INFO - Sent AIN 349600.
+2024-09-05 15:02:22,515 - INFO - Close Pop-Up, Open the 349600
+2024-09-05 15:02:22,515 - INFO - Set focus to window: ProVal
+2024-09-05 15:02:23,518 - INFO - set_focus(ProVal)
+2024-09-05 15:02:24,722 - INFO - Allocations opened.
+2024-09-05 15:02:51,376 - INFO - User clicked Yes
+2024-09-05 15:02:52,384 - INFO - Set focus to window: Cost Allocations
+2024-09-05 15:02:56,592 - INFO - Key Information opened.
+2024-09-05 15:02:58,140 - INFO - User clicked Yes
+2024-09-05 15:02:58,140 - INFO - Set focus to window: Key Information
+2024-09-05 15:03:00,454 - INFO - Opened pricing window.
+2024-09-05 15:03:00,454 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 15:03:00,725 - INFO - Clicked center of the image at (395, 355)
+2024-09-05 15:03:00,727 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 15:03:04,034 - INFO - Pricing...
+2024-09-05 15:03:08,035 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 15:03:08,308 - INFO - Clicked center of the image at (603, 189)
+2024-09-05 15:03:08,308 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 15:03:13,556 - INFO - User clicked Yes
+2024-09-05 15:03:14,558 - INFO - Set focus to window: ProVal
+2024-09-05 15:03:16,677 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 15:03:16,941 - INFO - Clicked center of the image at (855, 557)
+2024-09-05 15:03:16,941 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 15:03:24,639 - INFO - User clicked Yes
+2024-09-05 15:03:25,652 - INFO - Set focus to window: ProVal
+2024-09-05 15:03:26,768 - INFO - Save.
+2024-09-05 15:03:27,873 - INFO - Posting...
+2024-09-05 15:03:32,610 - INFO - Posting now.
+2024-09-05 15:03:33,713 - INFO - THE END...
+2024-09-05 15:03:34,716 - INFO - AIN logged
+2024-09-05 15:04:21,240 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 15:04:33,005 - INFO - CAPS LOCK is already off.
+2024-09-05 15:04:33,005 - INFO - Generated MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 15:04:33,021 - INFO - Variables Created:
+2024-09-05 15:04:33,035 - INFO - AIN: ['347451']
+2024-09-05 15:04:33,036 - INFO - AIN: 347451
+2024-09-05 15:04:33,037 - INFO - PostingType: HOEX
+2024-09-05 15:04:33,044 - INFO - MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 15:04:33,045 - INFO - PDATE: 03/01/2024
+2024-09-05 15:04:33,050 - INFO - Set focus to window: ProVal
+2024-09-05 15:04:34,055 - INFO - set_focus(ProVal)
+2024-09-05 15:04:34,158 - INFO - Set focus to window: ProVal
+2024-09-05 15:04:35,160 - INFO - set_focus(ProVal)
+2024-09-05 15:04:36,263 - INFO - hotkey
+2024-09-05 15:04:37,482 - INFO - press_key_multiple_times
+2024-09-05 15:04:37,894 - INFO - press_key_multiple_times
+2024-09-05 15:04:37,999 - INFO - press
+2024-09-05 15:04:38,100 - INFO - press
+2024-09-05 15:04:38,102 - INFO - CAPS LOCK is already off.
+2024-09-05 15:04:39,216 - INFO - Sent AIN 347451.
+2024-09-05 15:04:41,324 - INFO - Close Pop-Up, Open the 347451
+2024-09-05 15:04:41,324 - INFO - Set focus to window: ProVal
+2024-09-05 15:04:42,333 - INFO - set_focus(ProVal)
+2024-09-05 15:04:43,541 - INFO - Allocations opened.
+2024-09-05 15:05:05,089 - INFO - User clicked Yes
+2024-09-05 15:05:06,105 - INFO - Set focus to window: Cost Allocations
+2024-09-05 15:05:10,326 - INFO - Key Information opened.
+2024-09-05 15:05:11,118 - INFO - User clicked Yes
+2024-09-05 15:05:11,118 - INFO - Set focus to window: Key Information
+2024-09-05 15:05:13,437 - INFO - Opened pricing window.
+2024-09-05 15:05:13,437 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 15:05:13,706 - INFO - Clicked center of the image at (343, 303)
+2024-09-05 15:05:13,706 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 15:05:17,021 - INFO - Pricing...
+2024-09-05 15:05:21,025 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 15:05:21,273 - INFO - Clicked center of the image at (603, 189)
+2024-09-05 15:05:21,273 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 15:05:32,141 - INFO - User clicked Yes
+2024-09-05 15:05:33,145 - INFO - Set focus to window: ProVal
+2024-09-05 15:05:35,265 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 15:05:35,572 - INFO - Clicked center of the image at (855, 544)
+2024-09-05 15:05:35,572 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 15:05:41,986 - INFO - User clicked Yes
+2024-09-05 15:05:42,987 - INFO - Set focus to window: ProVal
+2024-09-05 15:05:44,104 - INFO - Save.
+2024-09-05 15:05:45,212 - INFO - Posting...
+2024-09-05 15:05:49,946 - INFO - Posting now.
+2024-09-05 15:05:51,049 - INFO - THE END...
+2024-09-05 15:05:52,068 - INFO - AIN logged
+2024-09-05 15:06:04,237 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 15:06:31,236 - INFO - CAPS LOCK is already off.
+2024-09-05 15:06:31,236 - INFO - Generated MemoTXT: POSTED - HOEX 03/05/2024
+2024-09-05 15:06:31,254 - INFO - Variables Created:
+2024-09-05 15:06:31,270 - INFO - AIN: ['348206']
+2024-09-05 15:06:31,273 - INFO - AIN: 348206
+2024-09-05 15:06:31,274 - INFO - PostingType: HOEX
+2024-09-05 15:06:31,276 - INFO - MemoTXT: POSTED - HOEX 03/05/2024
+2024-09-05 15:06:31,278 - INFO - PDATE: 03/05/2024
+2024-09-05 15:06:31,279 - INFO - Set focus to window: ProVal
+2024-09-05 15:06:32,299 - INFO - set_focus(ProVal)
+2024-09-05 15:06:32,404 - INFO - Set focus to window: ProVal
+2024-09-05 15:06:33,408 - INFO - set_focus(ProVal)
+2024-09-05 15:06:34,515 - INFO - hotkey
+2024-09-05 15:06:35,743 - INFO - press_key_multiple_times
+2024-09-05 15:06:36,152 - INFO - press_key_multiple_times
+2024-09-05 15:06:36,258 - INFO - press
+2024-09-05 15:06:36,360 - INFO - press
+2024-09-05 15:06:36,360 - INFO - CAPS LOCK is already off.
+2024-09-05 15:06:37,478 - INFO - Sent AIN 348206.
+2024-09-05 15:06:39,584 - INFO - Close Pop-Up, Open the 348206
+2024-09-05 15:06:39,584 - INFO - Set focus to window: ProVal
+2024-09-05 15:06:40,593 - INFO - set_focus(ProVal)
+2024-09-05 15:06:41,802 - INFO - Allocations opened.
+2024-09-05 15:06:44,460 - INFO - User clicked Yes
+2024-09-05 15:06:45,476 - INFO - Set focus to window: Cost Allocations
+2024-09-05 15:06:49,697 - INFO - Key Information opened.
+2024-09-05 15:06:53,747 - INFO - User clicked Yes
+2024-09-05 15:06:53,747 - INFO - Set focus to window: Key Information
+2024-09-05 15:06:56,059 - INFO - Opened pricing window.
+2024-09-05 15:06:56,059 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 15:06:56,338 - INFO - Clicked center of the image at (551, 511)
+2024-09-05 15:06:56,338 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 15:06:59,656 - INFO - Pricing...
+2024-09-05 15:07:03,660 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 15:07:03,938 - INFO - Clicked center of the image at (603, 189)
+2024-09-05 15:07:03,938 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 15:07:09,471 - INFO - User clicked Yes
+2024-09-05 15:07:10,473 - INFO - Set focus to window: ProVal
+2024-09-05 15:07:12,593 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 15:07:12,888 - INFO - Clicked center of the image at (855, 544)
+2024-09-05 15:07:12,888 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 15:07:20,489 - INFO - User clicked Yes
+2024-09-05 15:07:21,491 - INFO - Set focus to window: ProVal
+2024-09-05 15:07:22,607 - INFO - Save.
+2024-09-05 15:07:23,714 - INFO - Posting...
+2024-09-05 15:07:28,452 - INFO - Posting now.
+2024-09-05 15:07:29,554 - INFO - THE END...
+2024-09-05 15:07:30,577 - INFO - AIN logged
+2024-09-05 15:07:38,218 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 15:07:51,191 - INFO - CAPS LOCK is already off.
+2024-09-05 15:07:51,191 - INFO - Generated MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 15:07:51,216 - INFO - Variables Created:
+2024-09-05 15:07:51,221 - INFO - AIN: ['350282']
+2024-09-05 15:07:51,223 - INFO - AIN: 350282
+2024-09-05 15:07:51,227 - INFO - PostingType: HOEX
+2024-09-05 15:07:51,228 - INFO - MemoTXT: POSTED - HOEX 03/01/2024
+2024-09-05 15:07:51,229 - INFO - PDATE: 03/01/2024
+2024-09-05 15:07:51,233 - INFO - Set focus to window: ProVal
+2024-09-05 15:07:52,236 - INFO - set_focus(ProVal)
+2024-09-05 15:07:52,340 - INFO - Set focus to window: ProVal
+2024-09-05 15:07:53,345 - INFO - set_focus(ProVal)
+2024-09-05 15:07:54,452 - INFO - hotkey
+2024-09-05 15:07:55,677 - INFO - press_key_multiple_times
+2024-09-05 15:07:56,088 - INFO - press_key_multiple_times
+2024-09-05 15:07:56,193 - INFO - press
+2024-09-05 15:07:56,296 - INFO - press
+2024-09-05 15:07:56,296 - INFO - CAPS LOCK is already off.
+2024-09-05 15:07:57,414 - INFO - Sent AIN 350282.
+2024-09-05 15:07:59,520 - INFO - Close Pop-Up, Open the 350282
+2024-09-05 15:07:59,520 - INFO - Set focus to window: ProVal
+2024-09-05 15:08:00,523 - INFO - set_focus(ProVal)
+2024-09-05 15:08:01,732 - INFO - Allocations opened.
+2024-09-05 15:08:13,032 - INFO - User clicked Yes
+2024-09-05 15:08:14,040 - WARNING - Window not found: Cost Allocations
+2024-09-05 15:08:18,250 - INFO - Key Information opened.
+2024-09-05 15:08:18,416 - INFO - User pressed no. Script stopped.
+2024-09-05 15:08:19,524 - INFO - Opened pricing window.
+2024-09-05 15:08:19,524 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png
+2024-09-05 15:08:19,686 - WARNING - No good match found at the confidence level of 0.75.
+2024-09-05 15:08:19,686 - WARNING - Failed to click center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png.
+2024-09-05 15:08:19,686 - INFO - Unable to locate. Script stopped.
+2024-09-05 15:08:19,686 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png
+2024-09-05 15:08:19,937 - INFO - Clicked center of the image at (611, 209)
+2024-09-05 15:08:19,937 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png.
+2024-09-05 15:08:29,238 - INFO - User pressed no. Script stopped.
+2024-09-05 15:08:30,120 - INFO - Kill key pressed. Stopping the script...
+2024-09-05 15:08:30,347 - INFO - Trying to click center on image: S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png
+2024-09-05 15:08:30,640 - INFO - Clicked center of the image at (1667, 511)
+2024-09-05 15:08:30,640 - INFO - Successfully clicked center of S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png.
+2024-09-05 15:09:55,951 - INFO - Kill key monitor started. Press 'esc' to stop the script.
+2024-09-05 15:10:07,512 - INFO - CAPS LOCK was on. It has been turned off.
+2024-09-05 15:10:07,512 - INFO - Generated MemoTXT: POSTED - HOEX 03/09/2024
+2024-09-05 15:10:07,580 - INFO - Variables Created:
+2024-09-05 15:10:07,594 - INFO - AIN: ['346266']
+2024-09-05 15:10:07,627 - INFO - AIN: 346266
+2024-09-05 15:10:07,629 - INFO - PostingType: HOEX
+2024-09-05 15:10:07,635 - INFO - MemoTXT: POSTED - HOEX 03/09/2024
+2024-09-05 15:10:07,671 - INFO - PDATE: 03/09/2024
+2024-09-05 15:10:07,681 - INFO - Set focus to window: ProVal
+2024-09-05 15:10:08,683 - INFO - set_focus(ProVal)
+2024-09-05 15:10:08,792 - INFO - Set focus to window: ProVal
+2024-09-05 15:10:09,795 - INFO - set_focus(ProVal)
+2024-09-05 15:10:10,903 - INFO - hotkey
+2024-09-05 15:10:12,128 - INFO - press_key_multiple_times
+2024-09-05 15:10:12,538 - INFO - press_key_multiple_times
+2024-09-05 15:10:12,643 - INFO - press
+2024-09-05 15:10:12,749 - INFO - press
+2024-09-05 15:10:12,855 - INFO - CAPS LOCK was on. It has been turned off.
+2024-09-05 15:10:13,972 - INFO - Sent AIN 346266.
+2024-09-05 15:10:16,076 - INFO - Close Pop-Up, Open the 346266
+2024-09-05 15:10:16,078 - INFO - Set focus to window: ProVal
+2024-09-05 15:10:17,080 - INFO - set_focus(ProVal)
+2024-09-05 15:10:18,283 - INFO - Allocations opened.

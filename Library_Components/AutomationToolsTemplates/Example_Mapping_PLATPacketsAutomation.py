@@ -879,7 +879,7 @@ Where
     AND AIN NOT IN ({','.join(['?' for _ in AIN_Exclude])})
 
 Order by 
-    AIN ASC
+    PIN ASC
 """
 logging.info("SQL_Query")
 

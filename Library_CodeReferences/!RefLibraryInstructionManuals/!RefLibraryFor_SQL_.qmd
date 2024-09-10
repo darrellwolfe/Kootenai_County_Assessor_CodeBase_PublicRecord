@@ -98,7 +98,7 @@ group by ci.PIN, ci.AIN
 ```
 
 
-the opposite on EXCEPT is INTERSECT
+the opposite on EXCEPT is INTERSECT, only those in both tables
 
 ```{sql eval=FALSE, include=TRUE}
 select ci.PIN, ci.AIN 

@@ -127,10 +127,8 @@ END AS County_Name
 From TSBv_PARCELMASTER AS pm
 
 Where pm.EffStatus = 'A'
-And pm.pin NOT LIKE 'E%'
-And pm.pin NOT LIKE 'G%'
-And pm.pin NOT LIKE 'U%'
 AND pm.ClassCD NOT LIKE '070%'
+
 
 )
 

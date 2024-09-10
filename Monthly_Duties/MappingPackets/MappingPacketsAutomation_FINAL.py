@@ -73,7 +73,7 @@ def ensure_capslock_off():
 ### Logging
 
 # This will call into both the logging config and the AINLogProcessor config
-#mylog_filename = 'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell\Logs_Darrell/MappingPacketsAutomation.log'
+#mylog_filename = 'C:/Users/dwolfe/Documents/Kootenai_County_Assessor_CodeBase-1/Working_Darrell/Logs_Darrell/MappingPacketsAutomation.log'
 mylog_filename = 'S:/Common/Comptroller Tech/Reports/Python/Auto_Mapping_Packet/MappingPacketsAutomation.log'
 
 
@@ -871,7 +871,7 @@ conn = connect_to_database(db_connection_string)
 cursor = conn.cursor()
 
 # The query should accommodate multiple AINs in a list
-query = f"SELECT TRIM(pm.AIN), pm.LegalAcres FROM TSBv_Parcelmaster AS pm WHERE pm.AIN IN ({','.join(AINLIST)})"
+query = f"SELECT TRIM(pm.AIN), pm.LegalAcres FROM TSBv_Parcelmaster AS pm WHERE pm.AIN IN ({','.join(AINLIST)})  ORDER BY pm.AIN"
 rows = execute_query(cursor, query)
 logging.info("SQL_Query")
 

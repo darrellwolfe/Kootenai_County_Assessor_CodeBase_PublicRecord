@@ -119,19 +119,11 @@ END AS County_Name
 ,pm.WorkValue_Impv
 ,pm.WorkValue_Total
 ,pm.CostingMethod
-
-
+,pm.EffStatus AS Account_Active_Status
 ,pm.Improvement_Status -- <Improved vs Vacant
 
 
 From TSBv_PARCELMASTER AS pm
-
-Where pm.EffStatus = 'A'
-And pm.pin NOT LIKE 'E%'
-And pm.pin NOT LIKE 'G%'
-And pm.pin NOT LIKE 'U%'
-AND pm.ClassCD NOT LIKE '070%'
-
 )
 
 
@@ -145,7 +137,8 @@ AND pm.ClassCD NOT LIKE '070%'
 
 
 SELECT
-pmd.District
+pmd.Account_Active_Status
+,pmd.District
 ,pmd.GEO
 ,pmd.GEO_Name
 ,pmd.lrsn
@@ -188,4 +181,4 @@ FROM CTE_ParcelMaster AS pmd
 --  ON pmd.lrsn = xxxx.lrsn
 
 
-Order By District,GEO;
+Order By District,GEO,PIN,Account_Active_Status;

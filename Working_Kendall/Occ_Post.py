@@ -202,6 +202,7 @@ memos_land_information_ = r'S:\Common\Comptroller Tech\Reports\Python\py_images\
 pricing_selectall =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_pricing_selectall.png'
 NC24Memo =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_memo_NC24.png'
 history =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_history.png'
+summary =r'S:\Common\Comptroller Tech\Reports\Python\py_images\Proval_values_summary.png'
 
 #PROCESSING OCR IMAGES: STEP 1 - CAPTURE SCREEN IN GREYSCALE
 def capture_and_convert_screenshot():
@@ -411,8 +412,8 @@ else:
     logging.info("Unable to locate. Script stopped.")
 stop_script
 
-#Process: Find and Click the Values History sub-tab
-if click_image_single(history, direction='center', confidence=0.75):
+#Process: Find and Click the Values Summary sub-tab
+if click_image_single(summary, direction='center', confidence=0.75):
     time.sleep(4)
     stop_script
 else:
@@ -468,6 +469,9 @@ else:
 stop_script
 
 #Process: Save Account
+time.sleep(1)
+set_focus("ProVal")
+time.sleep(1)
 pyautogui.hotkey('ctrl', 's')
 logging.info("Save.")
 time.sleep(1)
@@ -497,4 +501,4 @@ logging.info("THE END...")
 time.sleep(1)
 log_processor.process_log()
 log_processor.print_unique_ains()
-logging.info("ALL_STOP_NEXT")
+logging.info("AIN logged")
